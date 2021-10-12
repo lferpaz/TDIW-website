@@ -6,8 +6,9 @@
         <link rel="stylesheet" href="../src/public/css/style.css">
     </head>
     <body>
+
         <header class="header">
-            <img src="../src/public/images/google.png" alt="logo">
+            <a href="#" alt="main menu"><img src="../src/public/images/google.png" alt="logo"></a>
         </header>
 
         <main class="box">
@@ -30,12 +31,17 @@
             <section class="right-box">
                 <h2>Iniciar sesión</h2>
                 <form action="login.php" method="post" id="login">
-                    <input type="mail" id="mail" name="mail" placeholder="Email"><br>
-                    <input type="password" id="password" name="password" placeholder="Contraseña"><br>
+                    <input class="form-input" type="mail" name="mail" placeholder="Email"><br>
+                    <input class="form-input" type="password" name="password" placeholder="Contraseña"><br>
 
                     <a href="#" alt="link para recuperar contraseña">He olvidado mi contraseña</a>
 
                     <input id="send" type="submit" value="Iniciar session">
+
+                    <div class="separador">
+                        <span>Tambien puedes</span>
+                    </div>
+                    
                     <div id="method-login">
                         
                         <button id="method-login-google" alt="Login with google">
@@ -47,6 +53,12 @@
                         </button>
                     </div>
               </form>
+
+                <div class="separador">
+                    <span>¿Aun no tienes una cuenta?</span>
+                </div>
+              
+                <a href="#" class="button">Crear Cuenta</a>
             </section>
         </main>
 
