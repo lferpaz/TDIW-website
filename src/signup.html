@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Accede a tu cuenta | PadelMania.com</title>
+        <title>Regístrate | PadelMania.com</title>
         <link rel="stylesheet" href="../src/public/css/style.css">
     </head>
     <body>
@@ -29,14 +29,21 @@
             </section>
     
             <section class="right-box">
-                <h2>Iniciar sesión</h2>
+                <h2>Crear Cuenta</h2>
                 <form action="login.php" method="post" id="login">
-                    <input class="form-input" type="mail" name="mail" placeholder="Email*"><br>
+                    <input class="form-input" type="text" name="dni" placeholder="DNI/NIE*"><br>
+                    <input class="form-input" type="text" name="username" placeholder="Usuario"><br>
+                    <input class="form-input" type="text" name="name" placeholder="Nombre"><br>
+                    <input class="form-input" type="text" name="last_name" placeholder="Apellido"><br>
+                    <input class="form-input" type="mail" name="mail" placeholder="E-mail*"><br>
+                    <input class="form-input" type="text" name="phone" placeholder="Telefono"><br>
                     <input class="form-input" type="password" name="password" placeholder="Contraseña*"><br>
+                    <input class="form-input" type="password" name="password_confirmation" placeholder="Repetir Contraseña*"><br>
 
-                    <a href="#" alt="link para recuperar contraseña">He olvidado mi contraseña</a>
+                    <input type="checkbox" class="form-checkbox" name="conditions" value="condition">
+                    <label for="conditions"> He leído y acepto la <a href="#" alt="link politica de privacidad">política de privacidad</a></label><br>
 
-                    <input id="send" type="submit" value="Iniciar session">
+                    <input id="send" type="submit" value="Crear Cuenta">
 
                     <div class="separador">
                         <span>Tambien puedes</span>
@@ -45,20 +52,20 @@
                     <div id="method-login">
                         
                         <button id="method-login-google" alt="Login with google">
-                                Iniciar Sesión con <img src="public/images/google.png"> 
+                                Crear Cuenta con <img src="public/images/google.png"> 
                         </button>
                         
                         <button id="method-login-facebook"alt="Login with facebook">
-                            Iniciar Sesión con <img src="public/images/facebook.png"> 
+                            Crear Cuenta con <img src="public/images/facebook.png"> 
                         </button>
                     </div>
               </form>
 
                 <div class="separador">
-                    <span>¿Aun no tienes una cuenta?</span>
+                    <span>¿Ya tienes una cuenta?</span>
                 </div>
               
-                <a href="./signup.html" class="button btn-end">Crear Cuenta</a>
+                <a href="./login.html" class="button btn-end">Iniciar Sesión</a>
             </section>
         </main>
 
