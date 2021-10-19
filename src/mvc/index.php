@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>PadelMania.com | Tienda de Padel online</title>
-        <link rel="stylesheet" href="../src/public/css/style.css">
-        <link rel="stylesheet" href="../src/public/css/component.css">
-        <link rel="stylesheet" href="../src/public/css/header.css">
-    </head>
+<?php
+ include_once ($_SERVER['DOCUMENT_ROOT'].'./Pruebas/src/mvc/path.php');
+ require_once (ROOT_PATH."/head.php");
+?>
     <body>
 
         <header class="main-header">
             <div class="principal-header">
 
                 <section class="left-header">
-                    <a href="#" alt="main menu"><img src="../src/public/images/google.png" alt="logo"></a>
+                    <a href="index.php" alt="main menu"><img src="./public/images/google.png" alt="logo"></a>
                 </section>
                 
                 <section class="center-header">
@@ -35,14 +32,14 @@
                 
                 <section class="right-header">
                     <div>
-                        <a href="login.html" class="button btn-account">
-                            <img class="img-account" src="public/images/user.png">
+                        <a href="./Views/User/login.php" class="button btn-account">
+                            <img class="img-account" src="./public/images/user.png">
                             Cuenta
                         </a>
                     </div>
                     <div class="right-header-end">
                         <a href="#" class="button btn-account">
-                            <img class="img-account" src="public/images/shopping-bag.png">
+                            <img class="img-account" src="./public/images/shopping-bag.png">
                             Carrito
                         </a>
                     </div>
@@ -61,3 +58,18 @@
         <script></script>
     </body>
 </html>
+<?php 
+
+require_once('connection.php');
+
+if (isset($_GET['controller'])&&isset($_GET['action'])) {
+    $controller=$_GET['controller'];
+    $action=$_GET['action'];		
+} else {
+    $controller='user';
+    $action='index';
+}	
+
+require_once('routes.php'); 
+?>
+
