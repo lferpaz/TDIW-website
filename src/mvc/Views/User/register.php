@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <?php
- include_once ($_SERVER['DOCUMENT_ROOT'].'./Pruebas/src/mvc/path.php');
+ include_once ($_SERVER['DOCUMENT_ROOT'].'./src/mvc/path.php');
 ?>
 <head>
         <meta charset="utf-8">

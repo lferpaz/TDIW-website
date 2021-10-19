@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php
- include_once ($_SERVER['DOCUMENT_ROOT'].'./Pruebas/src/mvc/path.php');
+ include_once ($_SERVER['DOCUMENT_ROOT'].'./src/mvc/path.php');
  require_once (ROOT_PATH."/head.php");
 ?>
     <body>
