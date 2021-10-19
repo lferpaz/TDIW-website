@@ -3,21 +3,21 @@ body {
     font-family:sans-serif;
 }
 
+.form-page {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+
 .form-checkbox {
     margin-bottom: 10px;
 }
 
-.button {
-    display: block;
-    text-decoration: none;
-    width: 93%;
-    height: 20px;
-    background: #efefef;
-    padding: 10px;
-    text-align: center;
-    border-radius: 3px;
-    color: black;
-  }
+.img-account {
+    width: 25px;
+    height: 25px
+}
 
 .btn-end {
     margin-bottom: 25px;
@@ -27,6 +27,7 @@ body {
     background-color: #e4e4e4;
   }
 
+/*Signup and login style*/
 .header img{
     margin-left: 57px;
     margin-top: 50px;
@@ -154,13 +155,13 @@ body {
 }
 
 
-@media (max-width: 62em) {
+@media (max-width: 992px) {
     .left-box {
         display: none;
     }
     .right-box {
-        padding-right: 3rem;
-        padding-left: 3.75rem;
+        padding-right: 48px;
+        padding-left: 60px;
     }
     .box {
         justify-content:center;

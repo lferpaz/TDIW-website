@@ -1,0 +1,19 @@
+.button {
+    display: block;
+    text-decoration: none;
+    width: 93%;
+    height: 20px;
+    background: #efefef;
+    padding: 10px;
+    text-align: center;
+    border-radius: 3px;
+    color: black;
+  }
+
+.btn-account {
+  width: 100%;
+  height: 60%;
+  background: transparent;
+  font-size: 25px;
+}
+
