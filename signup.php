@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
+        <meta charset="utf-8"/> 
         <title>Regístrate | PadelMania.com</title>
-        <link rel="stylesheet" href="../src/public/css/style.css">
-        <link rel="stylesheet" href="../src/public/css/component.css">
-    </head>
+        <link rel="stylesheet" href="public/css/style.css">
+        <link rel="stylesheet" href="public/css/component.css">
+    </head> 
     <body>
         <div class="form-page">
             <header class="header">
-                <a href="index.html" alt="main menu"><img src="../src/public/images/google.png" alt="logo"></a>
+                <a href="index.php" alt="main menu"><img src="public/images/google.png" alt="logo"></a>
             </header>
     
             <main class="box">
                 <section class="left-box">
     
                     <div class="slide">
-                        <img src="../src/public/images/background-login-1.jpg" alt="slide-1">
+                        <img src="public/images/background-login-1.jpg" alt="slide-1">
                     </div>
     
                     <div class="slide">
-                      <img src="../src/public/images/background-login-2.jpg" alt="slide-2">
+                      <img src="public/images/background-login-2.jpg" alt="slide-2">
                     </div>
     
                     <div class="slide">
-                      <img src="../src/public/images/background-login-3.jpg" alt="slide-3">
+                      <img src="public/images/background-login-3.jpg" alt="slide-3">
                     </div>
                     
                 </section>
         
                 <section class="right-box">
                     <h2>Crear Cuenta</h2>
-                    <form action="login.php" method="post" id="login">
+                    <form action=./controllers/controller_user_creation.php method="post" id="login">
                         <input class="form-input" type="text" name="dni" placeholder="DNI/NIE*"><br>
                         <input class="form-input" type="text" name="username" placeholder="Usuario"><br>
                         <input class="form-input" type="text" name="name" placeholder="Nombre"><br>
@@ -66,11 +66,12 @@
                         <span>¿Ya tienes una cuenta?</span>
                     </div>
                   
-                    <a href="./login.html" class="button btn-end">Iniciar Sesión</a>
+                    <a href="index.php" class="button btn-end">Iniciar Sesión</a>
                 </section>
             </main>
         </div>
 
         <script src="public/js/login.js"></script>
+    
     </body>
 </html>

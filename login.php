@@ -3,35 +3,35 @@
     <head>
         <meta charset="utf-8">
         <title>Accede a tu cuenta | PadelMania.com</title>
-        <link rel="stylesheet" href="../src/public/css/style.css">
-        <link rel="stylesheet" href="../src/public/css/component.css">
+        <link rel="stylesheet" href="./public/css/style.css">
+        <link rel="stylesheet" href="./public/css/component.css">
     </head>
     <body>
         <div class="form-page">
             <header class="header">
-                <a href="index.html" alt="main menu"><img src="../src/public/images/google.png" alt="logo"></a>
+                <a href="index.php" alt="main menu"><img src="./public/images/google.png" alt="logo"></a>
             </header>
     
             <main class="box">
                 <section class="left-box">
     
                     <div class="slide">
-                        <img src="../src/public/images/background-login-1.jpg" alt="slide-1">
+                        <img src="./public/images/background-login-1.jpg" alt="slide-1">
                     </div>
     
                     <div class="slide">
-                      <img src="../src/public/images/background-login-2.jpg" alt="slide-2">
+                      <img src="./public/images/background-login-2.jpg" alt="slide-2">
                     </div>
     
                     <div class="slide">
-                      <img src="../src/public/images/background-login-3.jpg" alt="slide-3">
+                      <img src="./public/images/background-login-3.jpg" alt="slide-3">
                     </div>
                     
                 </section>
         
                 <section class="right-box">
                     <h2>Iniciar sesión</h2>
-                    <form action="login.php" method="post" id="login">
+                    <form action="./controllers/controller_user_login.php" method="post" id="login">
                         <input class="form-input" type="mail" name="mail" placeholder="Email*"><br>
                         <input class="form-input" type="password" name="password" placeholder="Contraseña*"><br>
     
@@ -59,7 +59,7 @@
                         <span>¿Aun no tienes una cuenta?</span>
                     </div>
                   
-                    <a href="./signup.html" class="button btn-end">Crear Cuenta</a>
+                    <a href="./signup.php" class="button btn-end">Crear Cuenta</a>
                 </section>
             </main>
         </div>

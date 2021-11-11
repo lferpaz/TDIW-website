@@ -154,8 +154,18 @@ body {
     background-color: #e4e4e4;
 }
 
+.products {
+    display: inline-grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 50px;
+}
 
-@media (max-width: 992px) {
+.product img {
+    width: 250px;
+    height: 250px;
+}
+
+@media (max-width: 1200px) {
     .left-box {
         display: none;
     }
@@ -173,6 +183,21 @@ body {
 
     .header img {
         margin-left: 0px;
+    }
+    .products {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media (max-width: 800px) {
+    .products {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .products {
+        grid-template-columns: auto;
     }
 }
 
