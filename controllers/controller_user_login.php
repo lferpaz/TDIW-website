@@ -5,10 +5,16 @@ include_once __DIR__. "/../views/header.php";
 
 $connection = connect_db();
 $users = select_user($connection, $_POST['mail']);
-$user_name = $user['firtname'];
+
 foreach ($users as $user) {
-    $user_name = $user['firtname'];
+    $usuario = $user;
 }
-header("Location: ../index.php?user_name=$user_name");
-die();
+
+if (password_verify($_POST['password'], $usuario['password'])) {
+    echo "Login success";
+    $_SESSION['name'] = $usuario['nombre'];
+    header("Location: ../index.php");
+} else {
+    echo "Login fail";
+}
 ?>

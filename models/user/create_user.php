@@ -1,7 +1,7 @@
 <?php
-    function create_user($connection, $user_id, $username, $name, $lastname, $mail, $phone, $password) {
+    function create_user($connection, $user_id, $name, $direction, $poblacion, $cp, $phone, $mail, $password) {
         try {
-            $query = $connection->prepare("INSERT INTO usuario VALUES('$user_id', '$username', '$password', '$name', '$lastname', '$mail', '$phone')");
+            $query = $connection->prepare("INSERT INTO usuario VALUES('$user_id', '$name', '$direction', '$poblacion', '$cp', '$phone', '$mail', '$password')");
             $query->execute();
             return true;
         } catch (PDOException $e) {

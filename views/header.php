@@ -2,18 +2,12 @@
     <div class="principal-header">
 
         <section class="left-header">
-                <a href="#" alt="main menu"><img src="./public/images/google.png" alt="logo"></a>
+                <a href="../index.php" alt="main menu"><img src="./public/images/google.png" alt="logo"></a>
         </section>
                 
         <section class="center-header">
             <div>
-                <select class="searh-category" onchange=filterProduct()>
-                        <option value="0">Todas las Categorias</option>
-                        <option value="1">Palas</option>
-                        <option value="2">Pelotas</option>
-                        <option value="3">Ropa</option>
-                        <option value="4">Accesorios</option>
-                </select>
+                <?php include_once __DIR__."./../controllers/controller_category.php"; ?>
             </div>
             <div class="main-search">
                 <input type="taxt" name="searh" placeholder="Busca en PadelMania :)">
@@ -26,7 +20,7 @@
             <div>
                 <a href="login.php" class="button btn-account">
                     <img class="img-account" src="public/images/user.png">
-                    <span id="header_user"></span> 
+                    <span id="header_user"><?php echo($_SESSION['name']);?></span> 
                 </a>
                 </div>
                 <div class="right-header-end">
@@ -41,5 +35,3 @@
             
         <div class="separador sp-header"></div>    
 </header>
-
-<script src="./public/js/header.js"></script>

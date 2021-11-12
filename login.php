@@ -38,21 +38,6 @@
                         <a href="#" alt="link para recuperar contraseña">He olvidado mi contraseña</a>
     
                         <input id="send" type="submit" value="Iniciar session">
-    
-                        <div class="separador">
-                            <span>Tambien puedes</span>
-                        </div>
-                        
-                        <div id="method-login">
-                            
-                            <button id="method-login-google" alt="Login with google">
-                                    Iniciar Sesión con <img src="public/images/google.png"> 
-                            </button>
-                            
-                            <button id="method-login-facebook"alt="Login with facebook">
-                                Iniciar Sesión con <img src="public/images/facebook.png"> 
-                            </button>
-                        </div>
                   </form>
     
                     <div class="separador">

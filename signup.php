@@ -32,34 +32,21 @@
                 <section class="right-box">
                     <h2>Crear Cuenta</h2>
                     <form action=./controllers/controller_user_creation.php method="post" id="login">
-                        <input class="form-input" type="text" name="dni" placeholder="DNI/NIE*"><br>
-                        <input class="form-input" type="text" name="username" placeholder="Usuario"><br>
-                        <input class="form-input" type="text" name="name" placeholder="Nombre"><br>
+                        <input class="form-input" type="text" name="dni" placeholder="DNI/NIE*" required><br>
+                        <input class="form-input" type="text" name="name" placeholder="Nombre*" required><br>
                         <input class="form-input" type="text" name="last_name" placeholder="Apellido"><br>
-                        <input class="form-input" type="mail" name="mail" placeholder="E-mail*"><br>
+                        <input class="form-input" type="mail" name="mail" placeholder="E-mail*" required><br>
                         <input class="form-input" type="text" name="phone" placeholder="Telefono"><br>
-                        <input class="form-input" type="password" name="password" placeholder="Contraseña*"><br>
-                        <input class="form-input" type="password" name="password_confirmation" placeholder="Repetir Contraseña*"><br>
+                        <input class="form-input" type="text" name="direction" placeholder="Direccion"><br>
+                        <input class="form-input" type="text" name="poblacion" placeholder="Poblacion"><br>
+                        <input class="form-input" type="text" name="cp" placeholder="Codigo postal"><br>
+                        <input class="form-input" type="password" name="password" placeholder="Contraseña*" required><br>
+                        <input class="form-input" type="password" name="password_confirmation" placeholder="Repetir Contraseña*" required><br>
     
                         <input type="checkbox" class="form-checkbox" name="conditions" value="condition">
                         <label for="conditions"> He leído y acepto la <a href="#" alt="link politica de privacidad">política de privacidad</a></label><br>
     
                         <input id="send" type="submit" value="Crear Cuenta">
-    
-                        <div class="separador">
-                            <span>Tambien puedes</span>
-                        </div>
-                        
-                        <div id="method-login">
-                            
-                            <button id="method-login-google" alt="Login with google">
-                                    Crear Cuenta con <img src="public/images/google.png"> 
-                            </button>
-                            
-                            <button id="method-login-facebook"alt="Login with facebook">
-                                Crear Cuenta con <img src="public/images/facebook.png"> 
-                            </button>
-                        </div>
                   </form>
     
                     <div class="separador">
