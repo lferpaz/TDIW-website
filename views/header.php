@@ -18,20 +18,28 @@
                 
         <section class="right-header">
             <div>
-                <a href="login.php" class="button btn-account">
+                <a id="user-button" class="button btn-account">
                     <img class="img-account" src="public/images/user.png">
-                    <span id="header_user"><?php echo($_SESSION['name']);?></span> 
+                    <span id="header_user">
+                    <?php if(!isset($_SESSION['name'])) { echo("Usuario");} 
+                        else { echo($_SESSION['name']); }?>
+                    </span> 
                 </a>
-                </div>
-                <div class="right-header-end">
-                    <a href="#" class="button btn-account">
-                        <img class="img-account" src="public/images/shopping-bag.png">
-                        Carrito
-                    </a>
-                </div>
-            </section>
+            </div>
+            <div class="right-header-end">
+                <a href="#" class="button btn-account">
+                    <img class="img-account" src="public/images/shopping-bag.png">
+                    Carrito
+                </a>
+            </div>
+        </section>
 
-        </div>
-            
+    </div>
+    <ul id="slide-menu">
+        <li onClick=menuClick(0)><a>Mi cuenta</a></li>
+        <li onClick=menuClick(1)><a>Mis pedidos</a></li>
+        <li onClick=menuClick(2)><a>Cerrar session</a></li>
+    </ul>
         <div class="separador sp-header"></div>    
 </header>
+<script src="./../public/js/header.js"></script>

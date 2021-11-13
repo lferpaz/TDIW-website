@@ -11,7 +11,7 @@ foreach ($users as $user) {
 }
 
 if (password_verify($_POST['password'], $usuario['password'])) {
-    echo "Login success";
+    session_start();
     $_SESSION['name'] = $usuario['nombre'];
     header("Location: ../index.php");
 } else {

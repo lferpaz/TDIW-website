@@ -157,7 +157,7 @@ body {
 .products {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    grid-gap: 50px;
+    grid-gap: 25px;
 }
 
 .product {
@@ -230,6 +230,24 @@ body {
     margin-top: 15px;
     border-radius: 3px;
     border: 1px;
+}
+
+#slide-menu{
+    display: none;
+    list-style-type: none;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #e8e8e8; 
+    transition: 0.5s;
+    padding-top: 60px;  
+}
+
+#slide-menu li:hover {
+    cursor: pointer;
 }
 
 @media (max-width: 1200px) {
