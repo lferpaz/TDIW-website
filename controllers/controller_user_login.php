@@ -15,6 +15,6 @@ if (password_verify($_POST['password'], $usuario['password'])) {
     $_SESSION['name'] = $usuario['nombre'];
     header("Location: ../index.php");
 } else {
-    echo "Login fail";
+    header("Location: ../login.php");
 }
 ?>

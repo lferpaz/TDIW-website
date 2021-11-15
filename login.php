@@ -32,8 +32,8 @@
                 <section class="right-box">
                     <h2>Iniciar sesión</h2>
                     <form action="./controllers/controller_user_login.php" method="post" id="login">
-                        <input class="form-input" type="mail" name="mail" placeholder="Email*"><br>
-                        <input class="form-input" type="password" name="password" placeholder="Contraseña*"><br>
+                        <input class="form-input" type="mail" name="mail" placeholder="Email*" required><br>
+                        <input class="form-input" type="password" name="password" placeholder="Contraseña*" required><br>
     
                         <a href="#" alt="link para recuperar contraseña">He olvidado mi contraseña</a>
     

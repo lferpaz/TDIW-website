@@ -36,10 +36,10 @@
                         <input class="form-input" type="text" name="name" placeholder="Nombre*" required><br>
                         <input class="form-input" type="text" name="last_name" placeholder="Apellido"><br>
                         <input class="form-input" type="mail" name="mail" placeholder="E-mail*" required><br>
-                        <input class="form-input" type="text" name="phone" placeholder="Telefono"><br>
-                        <input class="form-input" type="text" name="direction" placeholder="Direccion"><br>
-                        <input class="form-input" type="text" name="poblacion" placeholder="Poblacion"><br>
-                        <input class="form-input" type="text" name="cp" placeholder="Codigo postal"><br>
+                        <input class="form-input" type="text" name="phone" placeholder="Telefono" required><br>
+                        <input class="form-input" type="text" name="direction" placeholder="Direccion" required><br>
+                        <input class="form-input" type="text" name="poblacion" placeholder="Poblacion" required><br>
+                        <input class="form-input" type="text" name="cp" placeholder="Codigo postal" required><br>
                         <input class="form-input" type="password" name="password" placeholder="Contraseña*" required><br>
                         <input class="form-input" type="password" name="password_confirmation" placeholder="Repetir Contraseña*" required><br>
     

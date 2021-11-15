@@ -12,10 +12,10 @@ $correct = create_user($connection, $_POST['dni'], $name, $_POST['direction'],
 
 
 if ($correct) {
-    echo "Login success";
+    session_start();
     $_SESSION['name'] = $name;
     header("Location: ../index.php");
 } else {
-    echo "Login fail";
+    header("Location: ../signup.php");
 }
 ?>
