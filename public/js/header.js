@@ -1,4 +1,6 @@
 
+$(document).ready(function() {
+
  $('#user-button').click(function(){
     $.post('/controllers/session.php', {'action': 'check'}, function(data){
         if (data == 'true') {
@@ -8,18 +10,31 @@
                 $('#slide-menu').css({'display': 'none', 'width': '0px'});
             }
         } else {
-            window.location.replace('/../../login.php');
+            window.location.replace('/../../index.php?action=login');
         }
     });
+});
+
+$('#shopping-cart').click(function(){
+    $.post('/controllers/session.php', {'action': 'check'}, function(data){
+        if (data == 'true') {
+            $.get('/index.php?action=shopping_cart', function(data_shop) { $('#main-page').html(data_shop); });
+        } else {
+            window.location.replace('/../../index.php?action=login');
+        }
+    });
+});
+
 });
 
 function menuClick(value) {
     if (value == '0') {
         //User clicked user_page
     } else if (value == '1') {
-        //User clicked pedidos
+        $.get('/index.php?action=shopping_cart', function(data_shop) { $('#main-page').html(data_shop); });
+        $('#slide-menu').css({'display': 'none', 'width': '0px'});
+        
     } else if (value == '2') {
-        //User clicked logout
         $.post('/controllers/session.php',{'action': 'logout'});
         window.location.replace('/../../index.php');
         $('#slide-menu').css({'display': 'none', 'width': '0px'});

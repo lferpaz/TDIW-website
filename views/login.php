@@ -9,7 +9,7 @@
     <body>
         <div class="form-page">
             <header class="header">
-                <a href="index.php" alt="main menu"><img src="./public/images/google.png" alt="logo"></a>
+                <a href="/../index.php" alt="main menu"><img src="./public/images/google.png" alt="logo"></a>
             </header>
     
             <main class="box">
@@ -44,7 +44,7 @@
                         <span>¿Aun no tienes una cuenta?</span>
                     </div>
                   
-                    <a href="./signup.php" class="button btn-end">Crear Cuenta</a>
+                    <a href="/../index.php?action=signup" class="button btn-end">Crear Cuenta</a>
                 </section>
             </main>
         </div>

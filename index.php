@@ -1,24 +1,29 @@
-<?php 
-session_start();
+<?php
+
+if(!isset($_GET['action'])) {
+    $_GET['action'] = '';
+}
+
+switch($_GET['action']) {
+    case '':
+        require __DIR__ . "/views/main.php";
+        break;
+
+    case 'login':
+        require __DIR__ . "/views/login.php";
+        break;
+
+    case 'signup':
+        require __DIR__ . "/views/signup.php";
+        break;
+    
+    case 'shopping_cart':
+        require __DIR__ . "/views/user_cart.php";
+        break;
+    
+    default:
+        require __DIR__ . "/views/main.php";
+        break;
+}
+
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>PadelMania.com | Tienda de Padel online</title>
-        <link rel="stylesheet" href="./public/css/component.css">
-        <link rel="stylesheet" href="./public/css/style.css">
-        <link rel="stylesheet" href="./public/css/header.css">
-        <script src="./public/js/jquery-3.6.0.min.js" type="text/javascript"></script> 
-        
-    </head>
-    <body>
-        <?php include_once __DIR__."./views/header.php"; ?>
-        <main>
-            <section class="products">
-                <?php include_once __DIR__."./controllers/controller_product.php"; ?>
-            </section>
-        </main>
-        <script src="./public/js/products.js"></script>
-    </body>
-</html>

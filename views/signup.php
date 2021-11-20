@@ -9,7 +9,7 @@
     <body>
         <div class="form-page">
             <header class="header">
-                <a href="index.php" alt="main menu"><img src="public/images/google.png" alt="logo"></a>
+                <a href="/../index.php" alt="main menu"><img src="public/images/google.png" alt="logo"></a>
             </header>
     
             <main class="box">
@@ -53,7 +53,7 @@
                         <span>¿Ya tienes una cuenta?</span>
                     </div>
                   
-                    <a href="index.php" class="button btn-end">Iniciar Sesión</a>
+                    <a href="/../index.php?action=login" class="button btn-end">Iniciar Sesión</a>
                 </section>
             </main>
         </div>

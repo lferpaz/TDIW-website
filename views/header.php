@@ -2,7 +2,7 @@
     <div class="principal-header">
 
         <section class="left-header">
-                <a href="../index.php" alt="main menu"><img src="./public/images/google.png" alt="logo"></a>
+                <a href="/../index.php" alt="main menu"><img src="./public/images/google.png" alt="logo"></a>
         </section>
                 
         <section class="center-header">
@@ -27,7 +27,7 @@
                 </a>
             </div>
             <div class="right-header-end">
-                <a href="#" class="button btn-account">
+                <a id="shopping-cart" class="button btn-account">
                     <img class="img-account" src="public/images/shopping-bag.png">
                     Carrito
                 </a>

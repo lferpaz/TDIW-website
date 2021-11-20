@@ -23,9 +23,23 @@ body {
     margin-bottom: 25px;
 }
 
-  .button:hover {
+.button:hover {
     background-color: #e4e4e4;
-  }
+}
+.slide-container {
+    width: 100%;
+    margin: 0 auto;
+}
+.slide-item img {
+    width: 200px;
+    height: 200px;
+    background-color: #e4e4e4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.5s ease-in-out;
+}
 
 /*Signup and login style*/
 .header img{
