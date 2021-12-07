@@ -9,8 +9,8 @@ session_start();
         <link rel="stylesheet" href="./public/css/component.css">
         <link rel="stylesheet" href="./public/css/style.css">
         <link rel="stylesheet" href="./public/css/header.css">
-        <script src="./public/js/jquery-3.6.0.min.js" type="text/javascript"></script> 
-        
+        <script src="./public/js/jquery-3.6.0.min.js" type="text/javascript"></script>
+       
     </head>
     <body>
         <?php include_once __DIR__."./header.php"; ?>

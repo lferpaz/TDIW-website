@@ -22,11 +22,27 @@ $(document).ready(function() {
         });
     });
 
+    $('#button-add-trolley').click(function() {
+        $.post('/controllers/session.php', {'action': 'check'}, function(data){
+            if (data == 'false') {
+                window.location.replace('/../../index.php?action=login');
+            } else {
+                var d = new Date();
+                var month = d.getMonth()+1;
+                var day = d.getDate();
+                var time = ((day).length<2 ? '0' : '') + day + '/' + ((''+month).length<2 ? '0' : '') + month + '/' + d.getFullYear();
+                var datos = JSON.parse(data);
+                $.post('/controllers/controller_comanda.php', {date: time, user_id: datos.user_id}).done(function(data) {
+                    console.log(data);
+                });
+            }
+        });
+    });
+
 });
 
 function clickProduct(id_product) {
-    console.log(id_product);
-    $.post('/controllers/controller_select_product.php', {id: id_product}).done(function(data) {
+    $.get('/index.php?action=get_product&id="id_product"', {id: id_product}).done(function(data) {
         $('.products').html(data);
     });
 }

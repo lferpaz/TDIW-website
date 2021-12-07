@@ -21,6 +21,10 @@ switch($_GET['action']) {
         require __DIR__ . "/views/user_cart.php";
         break;
     
+    case 'get_product':
+        require __DIR__ . "/controllers/controller_select_product.php";
+        break;
+    
     default:
         require __DIR__ . "/views/main.php";
         break;

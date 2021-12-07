@@ -3,7 +3,7 @@ $(document).ready(function() {
 
  $('#user-button').click(function(){
     $.post('/controllers/session.php', {'action': 'check'}, function(data){
-        if (data == 'true') {
+        if (data != 'false') {
             if($('#slide-menu').is(":hidden")) {
                 $('#slide-menu').css({'display': 'block', 'width': '250px'});
             } else {
@@ -17,10 +17,11 @@ $(document).ready(function() {
 
 $('#shopping-cart').click(function(){
     $.post('/controllers/session.php', {'action': 'check'}, function(data){
-        if (data == 'true') {
-            $.get('/index.php?action=shopping_cart', function(data_shop) { $('#main-page').html(data_shop); });
-        } else {
+        if (data == 'false') {
             window.location.replace('/../../index.php?action=login');
+            
+        } else {
+            $.get('/index.php?action=shopping_cart', function(data_shop) { $('#main-page').html(data_shop); });
         }
     });
 });

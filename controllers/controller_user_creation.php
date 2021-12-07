@@ -14,6 +14,7 @@ $correct = create_user($connection, $_POST['dni'], $name, $_POST['direction'],
 if ($correct) {
     session_start();
     $_SESSION['name'] = $name;
+    $_SESSION['user_id'] = $_POST['dni'];
     header("Location: ../index.php");
 } else {
     header("Location: ../signup.php");

@@ -13,6 +13,7 @@ foreach ($users as $user) {
 if (password_verify($_POST['password'], $usuario['password'])) {
     session_start();
     $_SESSION['name'] = $usuario['nombre'];
+    $_SESSION['user_id'] = $usuario['Id'];
     header("Location: ../index.php");
 } else {
     header("Location: ../login.php");

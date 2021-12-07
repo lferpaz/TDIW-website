@@ -3,6 +3,10 @@ body {
     font-family:sans-serif;
 }
 
+#main-page {
+    margin-top: 133px;
+}
+
 .form-page {
     display: flex;
     align-items: center;
