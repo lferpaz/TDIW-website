@@ -21,8 +21,17 @@ $('#shopping-cart').click(function(){
             window.location.replace('/../../index.php?action=login');
             
         } else {
-            $.get('/index.php', {'action': 'select_linea_comanda', 'comanda_id': id_comanda}, function(data_linea_comanda) {
-                $('#main-page').html(data_linea_comanda);
+            var datos = JSON.parse(data);
+            datos.user_id
+            $.get('/index.php', {'action': 'select_comanda', 'user_id': datos.user_id}, function(data_shop) { 
+                if (data_shop != 'false') {
+                    datos = JSON.parse(data_shop);
+                    $.get('/index.php', {'action': 'shopping_cart', 'comanda_id': datos.comanda_id}, function(data_linea_comanda) {
+                        $('#main-page').html(data_linea_comanda);
+                        console.log(data_linea_comanda);
+                    });
+                }
+
             });
         }
     });

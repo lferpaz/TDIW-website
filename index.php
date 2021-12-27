@@ -18,7 +18,7 @@ switch($_GET['action']) {
         break;
     
     case 'shopping_cart':
-        require __DIR__ . "/controllers/comanda/controller_select_linea_comanda_by_id.php";
+        require __DIR__ . "/controllers/linea_comanda/controller_select_linea_comanda_by_id.php";
         break;
 
     case 'session':
