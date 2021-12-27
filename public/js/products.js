@@ -9,21 +9,21 @@ $(document).ready(function() {
         $(this).css('height', '300px');
         $(this).find('.btn-more').css('display', 'none'); 
     });
-    /* Revisar porque no funciona al cambiar categoria ni el hover
+
     $(".product").click(function() {
-        $.post('/controllers/controller_select_product.php', {id: $(this).attr('id')}).done(function(data) {
+        $.get('/index.php', {'action': 'get_product', 'id': $(this).attr('id')}).done(function(data) {
             $('.products').html(data);
         });
-    });*/
+    });
 
     $('.searh-category').change(function() {
-        $.post('/controllers/controller_product.php', {type: $('.searh-category').val()}).done(function(data) {
+        $.get('/index.php', {'action': 'product', type: $('.searh-category').val()}).done(function(data) {
             $('.products').html(data);
         });
     });
 
     $('#button-add-trolley').click(function() {
-        $.post('/controllers/session.php', {'action': 'check'}, function(data){
+        $.get('/index.php', {'action': 'session', 'op': 'check'}, function(data){
             if (data == 'false') {
                 window.location.replace('/../../index.php?action=login');
             } else {
@@ -32,17 +32,87 @@ $(document).ready(function() {
                 var day = d.getDate();
                 var time = ((day).length<2 ? '0' : '') + day + '/' + ((''+month).length<2 ? '0' : '') + month + '/' + d.getFullYear();
                 var datos = JSON.parse(data);
-                $.post('/controllers/controller_comanda.php', {date: time, user_id: datos.user_id}).done(function(data) {
-                    console.log(data);
+                var id_product = $('.product-detaill').attr('id');
+
+                $.get('/index.php', {'action': 'select_comanda', 'user_id': datos.user_id}, function(data_comanda) {
+                    if (data_comanda == 'false') {
+                        $.get('/index.php', {'action': 'create_comanda', 'date': time, 'user_id': datos.user_id}, function(data_create_comanda) {
+                            if (data_create_comanda == 'true')  {
+                                $.get('/index.php', {'action': 'select_comanda', 'user_id': datos.user_id}, function(data_created_comanda) {
+                                    data_comamda = data_created_comanda;  
+                                });
+                            }
+                        });
+                    }
+                    comanda = JSON.parse(data_comanda);
+                    var id_comanda = comanda.comanda_id;
+                    var total_elementos = parseInt(comanda.total_elementos) + 1;
+                    var total_importe = parseFloat(comanda.importe_total) + parseFloat($('#price').text());
+                    $.get('/index.php', {'action': 'update_comanda', 'id': id_comanda, 
+                            'total_elementos': total_elementos, 'total_importe': total_importe}, function(update_comanda){
+                                if (update_comanda == 'true') {
+                                    $.get('/index.php', {'action': 'select_linea_comanda', 'comanda_id': id_comanda, 'producto_id': id_product}, function(data_linea_comanda) {
+                                        if(data_linea_comanda == 'false') {
+                                            var linea;
+                                            $.get('/index.php', {'action': 'create_linea_comanda', 'comanda_id': id_comanda, 'producto_id': id_product, 'cantidad': 1, 
+                                            'nombre_producto':$('#name').text(), 'precio_producto': $('#price').text()}, function(data_linea_comanda_created) {
+                                                if (data_linea_comanda_created == 'true') {
+                                                    $.get('/index.php', {'action': 'select_linea_comanda', 'comanda_id': id_comanda, 'producto_id': id_product}, function(data_linea_comanda_select) {
+                                                        linea = data_linea_comanda_select;
+                                                    });
+                                                }
+                                            });
+                                        } else {
+                                            linea = JSON.parse(data_linea_comanda);
+                                            var cantidad = parseInt(linea.cantidad) + 1;
+                                            $.get('/index.php', {'action': 'update_linea_comanda', 'comanda_id':id_comanda, 'cantidad':cantidad ,'product_id':id_product}, function(data_linea_comanda_update) {
+                                                if(data_linea_comanda_update == 'true') {
+                                                    alert('Producto añadido añadido cesta.');
+                                                }
+                                            });
+                                        }
+                                        
+                                    });
+                                    
+                                }
+                        
+                    });
                 });
+                
+                
             }
-        });
+        })
     });
 
 });
 
-function clickProduct(id_product) {
-    $.get('/index.php?action=get_product&id="id_product"', {id: id_product}).done(function(data) {
+/*function clickProduct(id_product) {
+    $.get('/index.php', {'action': 'get_product', 'id':id_product}).done(function(data) {
         $('.products').html(data);
+    });
+}*/
+
+
+function select_comamda(datos) {
+    $.get('/index.php', {'action': 'select_comanda', 'user_id': datos.user_id}, function(data_comanda) {
+        if (data_comanda == 'false') { return false; }
+        else { return JSON.parse(data_comanda); }
+    });
+}
+
+function create_comanda(datos, time) {
+    $.get('/index.php', {'action': 'create_comanda', 'date': time, 'user_id': datos.user_id});
+    return select_comamda(datos);
+}
+
+function update_comanda(id_comanda, total_elementos, total_importe) {
+    $.get('/index.php', {'action': 'update_comanda', 'id': id_comanda, 
+        'total_elementos': total_elementos, 'total_importe': total_importe});
+}
+
+function select_linea_comanda(id_comanda, id_product) {
+    $.get('/index.php', {'action': 'select_linea_comanda', 'comanda_id': id_comanda, 'producto_id': id_product}, function(data_linea_comanda) {
+        if (data_linea_comanda == 'false') { return false; }
+        else { return JSON.parse(data_linea_comanda); }
     });
 }

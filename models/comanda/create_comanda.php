@@ -8,10 +8,10 @@
             $query->bindparam(':user_id', $user_id, PDO::PARAM_INT, 10);
             
             $query->execute();
-            return true;
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
             return false;
         }
+        return true;
     }
 ?>
