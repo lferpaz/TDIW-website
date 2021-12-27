@@ -2,6 +2,7 @@
 $(document).ready(function() {
 
     $(".product").hover(function() {
+        console.log("hover");
         $(this).css('height', '410px');
         $(this).find('.btn-more').css('display', 'block');
     
@@ -85,34 +86,3 @@ $(document).ready(function() {
     });
 
 });
-
-/*function clickProduct(id_product) {
-    $.get('/index.php', {'action': 'get_product', 'id':id_product}).done(function(data) {
-        $('.products').html(data);
-    });
-}*/
-
-
-function select_comamda(datos) {
-    $.get('/index.php', {'action': 'select_comanda', 'user_id': datos.user_id}, function(data_comanda) {
-        if (data_comanda == 'false') { return false; }
-        else { return JSON.parse(data_comanda); }
-    });
-}
-
-function create_comanda(datos, time) {
-    $.get('/index.php', {'action': 'create_comanda', 'date': time, 'user_id': datos.user_id});
-    return select_comamda(datos);
-}
-
-function update_comanda(id_comanda, total_elementos, total_importe) {
-    $.get('/index.php', {'action': 'update_comanda', 'id': id_comanda, 
-        'total_elementos': total_elementos, 'total_importe': total_importe});
-}
-
-function select_linea_comanda(id_comanda, id_product) {
-    $.get('/index.php', {'action': 'select_linea_comanda', 'comanda_id': id_comanda, 'producto_id': id_product}, function(data_linea_comanda) {
-        if (data_linea_comanda == 'false') { return false; }
-        else { return JSON.parse(data_linea_comanda); }
-    });
-}

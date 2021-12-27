@@ -6,3 +6,5 @@
     <a class="btn btn-more">Ver mas</a>
 </div>
 <?php } ?>
+
+<script src="./public/js/products.js"> </script>
