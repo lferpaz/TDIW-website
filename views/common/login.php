@@ -9,7 +9,7 @@
     <body>
         <div class="form-page">
             <header class="header">
-                <a href="/../index.php" alt="main menu"><img src="./public/images/google.png" alt="logo"></a>
+                <a href="/../../index.php" alt="main menu"><img src="./public/images/google.png" alt="logo"></a>
             </header>
     
             <main class="box">
@@ -31,7 +31,7 @@
         
                 <section class="right-box">
                     <h2>Iniciar sesión</h2>
-                    <form action="./controllers/controller_user_login.php" method="post" id="login">
+                    <form action="./controllers/user/controller_user_login.php" method="post" id="login">
                         <input class="form-input" type="mail" name="mail" placeholder="Email*" required><br>
                         <input class="form-input" type="password" name="password" placeholder="Contraseña*" required><br>
     
@@ -44,7 +44,7 @@
                         <span>¿Aun no tienes una cuenta?</span>
                     </div>
                   
-                    <a href="/../index.php?action=signup" class="button btn-end">Crear Cuenta</a>
+                    <a href="/../../index.php?action=signup" class="button btn-end">Crear Cuenta</a>
                 </section>
             </main>
         </div>

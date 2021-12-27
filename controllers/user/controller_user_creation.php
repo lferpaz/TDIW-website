@@ -1,6 +1,6 @@
 <?php
-include_once __DIR__."/../models/connect_db.php";
-include_once __DIR__."/../models/user/create_user.php";
+include_once __DIR__."/../../models/common/connect_db.php";
+include_once __DIR__."/../../models/user/create_user.php";
 
 $connection = connect_db();
 
@@ -15,8 +15,8 @@ if ($correct) {
     session_start();
     $_SESSION['name'] = $name;
     $_SESSION['user_id'] = $_POST['dni'];
-    header("Location: ../index.php");
+    header("Location: ../../index.php");
 } else {
-    header("Location: ../signup.php");
+    header("Location: ../../signup.php");
 }
 ?>

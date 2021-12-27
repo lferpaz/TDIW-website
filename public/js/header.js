@@ -21,7 +21,9 @@ $('#shopping-cart').click(function(){
             window.location.replace('/../../index.php?action=login');
             
         } else {
-            $.get('/index.php', {'action': 'shopping_cart'}, function(data_shop) { $('#main-page').html(data_shop); });
+            $.get('/index.php', {'action': 'select_linea_comanda', 'comanda_id': id_comanda}, function(data_linea_comanda) {
+                $('#main-page').html(data_linea_comanda);
+            });
         }
     });
 });

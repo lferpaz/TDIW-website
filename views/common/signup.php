@@ -9,7 +9,7 @@
     <body>
         <div class="form-page">
             <header class="header">
-                <a href="/../index.php" alt="main menu"><img src="public/images/google.png" alt="logo"></a>
+                <a href="/../../index.php" alt="main menu"><img src="public/images/google.png" alt="logo"></a>
             </header>
     
             <main class="box">
@@ -31,7 +31,7 @@
         
                 <section class="right-box">
                     <h2>Crear Cuenta</h2>
-                    <form action=./controllers/controller_user_creation.php method="post" id="login">
+                    <form action=./controllers/user/controller_user_creation.php method="post" id="login">
                         <input class="form-input" type="text" name="dni" placeholder="DNI/NIE*" required><br>
                         <input class="form-input" type="text" name="name" placeholder="Nombre*" required><br>
                         <input class="form-input" type="text" name="last_name" placeholder="Apellido"><br>
@@ -53,7 +53,7 @@
                         <span>¿Ya tienes una cuenta?</span>
                     </div>
                   
-                    <a href="/../index.php?action=login" class="button btn-end">Iniciar Sesión</a>
+                    <a href="/../../index.php?action=login" class="button btn-end">Iniciar Sesión</a>
                 </section>
             </main>
         </div>

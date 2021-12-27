@@ -3,12 +3,12 @@
         <div class="principal-header">
 
             <section class="left-header">
-                    <a href="/../index.php" alt="main menu"><img src="./public/images/google.png" alt="logo"></a>
+                    <a href="/../../index.php" alt="main menu"><img src="./public/images/google.png" alt="logo"></a>
             </section>
                     
             <section class="center-header">
                 <div>
-                    <?php include_once __DIR__."./../controllers/controller_category.php"; ?>
+                    <?php include_once __DIR__."./../../controllers/category/controller_category.php"; ?>
                 </div>
                 <div class="main-search">
                     <input type="taxt" name="searh" placeholder="Busca en PadelMania :)">
@@ -44,4 +44,4 @@
             <div class="separador sp-header"></div>
     </setction>    
 </header>
-<script src="./../public/js/header.js"></script>
+<script src="./../../public/js/header.js"></script>
