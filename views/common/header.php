@@ -30,7 +30,8 @@
                 <div class="right-header-end">
                     <a id="shopping-cart" class="button btn-account">
                         <img class="img-account" src="public/images/shopping-bag.png">
-                        Carrito <p id="number_cart"></p>
+                        Carrito <p id="number_cart"> (<?php if(!isset($_SESSION['total_items'])) {echo (0);}
+                                                            else { echo($_SESSION['total_items']); }?>)</p>
                     </a>
                 </div>
             </section>

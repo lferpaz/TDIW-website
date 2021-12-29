@@ -51,7 +51,9 @@ $('#button-add-trolley').click(function() {
                                 var cantidad = parseInt(linea.cantidad) + 1;
                                 $.get('/index.php', {'action': 'update_linea_comanda', 'comanda_id':id_comanda, 'cantidad':cantidad ,'product_id':id_product});
                             }
-                            $('#number_cart').text('('+total_elementos+')');
+                            $.get('/index.php', {'action': 'update_cart_number', 'total_items': total_elementos}, function(update_cart_number){
+                                $('#number_cart').text('('+total_elementos+')');
+                            });
                         });      
                     });
                 });

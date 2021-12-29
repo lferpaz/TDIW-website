@@ -65,6 +65,9 @@ switch($_GET['action']) {
         require __DIR__ . "/controllers/product/controller_get_data_product.php";
         break;
     
+    case 'update_cart_number':
+        require __DIR__ . "/controllers/common/cart.php";
+        break;
     default:
         require __DIR__ . "/views/common/main.php";
         break;
