@@ -77,22 +77,40 @@
 .right-header {
     display: flex;
     justify-content: space-between;
-    width: 25%;
+    width: 30%;
 }
 
-.right-header div {
-    margin-left: 25px;
+.right-header-start {
+    display: flex;
+    align-items: center;
+    font-size: 23px;
+    padding-bottom: 3px;
 }
+
+.right-header-start img {
+    width: 30px;
+    height: 30px;
+}
+
 
 .right-header-end {
+    display: flex;
+    align-items: center;
+    font-size: 23px;
+    padding-bottom: 3px;
     margin-left: 50px;
     margin-right: 15%;
 }
 
+.right-header-end img {
+    width: 30px;
+    height: 30px;
+}
+
 .sp-header {
-    margin-top: 15px;
+    margin-top: 0px;
     align-self: flex-end;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
 }
 
 @media (max-width: 992px) {

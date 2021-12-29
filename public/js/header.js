@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
 
- $('#user-button').click(function(){
+ $('.right-header-start').click(function(){
     $.get('/index.php', {'action': 'session', 'op': 'check'}, function(data){
         if (data != 'false') {
             if($('#slide-menu').is(":hidden")) {
@@ -15,7 +15,25 @@ $(document).ready(function() {
     });
 });
 
-$('#shopping-cart').click(function(){
+$('.right-header-start').hover(function(){
+    //comprueba si el elemento tiene el cursor encima
+    if($(this).is(":hover")) {
+        $(this).css({'background-color': '#E4E4E4'});
+    } else {
+        $(this).css({'background-color': 'white'});
+    }
+});
+
+$('.right-header-end').hover(function(){
+    //comprueba si el elemento tiene el cursor encima
+    if($(this).is(":hover")) {
+        $(this).css({'background-color': '#E4E4E4'});
+    } else {
+        $(this).css({'background-color': 'white'});
+    }
+});
+
+$('.right-header-end').click(function(){
     $.get('/index.php', {'action': 'session', 'op': 'check'}, function(data){
         if (data == 'false') {
             window.location.replace('/../../index.php?action=login');

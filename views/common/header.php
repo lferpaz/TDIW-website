@@ -18,21 +18,18 @@
             </section>
                     
             <section class="right-header">
-                <div>
-                    <a id="user-button" class="button btn-account">
-                        <img class="img-account" src="public/images/user.png">
-                        <span id="header_user">
-                        <?php if(!isset($_SESSION['name'])) { echo("Usuario");} 
-                            else { echo($_SESSION['name']); }?>
-                        </span> 
-                    </a>
+                <div class="right-header-start">
+                    <img class="img-account" src="public/images/user.png">
+                    <p id="header_user">
+                    <?php if(!isset($_SESSION['name'])) { echo("Usuario");} 
+                        else { echo($_SESSION['name']); }?>
+                    </p> 
                 </div>
                 <div class="right-header-end">
-                    <a id="shopping-cart" class="button btn-account">
-                        <img class="img-account" src="public/images/shopping-bag.png">
-                        Carrito <p id="number_cart"> (<?php if(!isset($_SESSION['total_items'])) {echo (0);}
+                    <img class="img-account" src="public/images/shopping-bag.png">
+                    <p>Carrito </p>
+                    <p id="number_cart"> (<?php if(!isset($_SESSION['total_items'])) {echo (0);}
                                                             else { echo($_SESSION['total_items']); }?>)</p>
-                    </a>
                 </div>
             </section>
 
