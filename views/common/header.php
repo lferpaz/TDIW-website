@@ -30,7 +30,7 @@
                 <div class="right-header-end">
                     <a id="shopping-cart" class="button btn-account">
                         <img class="img-account" src="public/images/shopping-bag.png">
-                        Carrito
+                        Carrito <p id="number_cart"></p>
                     </a>
                 </div>
             </section>

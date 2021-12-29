@@ -6,6 +6,6 @@ $connection = connect_db();
 
 $products = select_product_by_id($connection, $_GET['id']);
 
-include_once __DIR__."/../../views/product/product_data.php";
+include __DIR__."/../../views/product/product_data.php";
 
 ?>

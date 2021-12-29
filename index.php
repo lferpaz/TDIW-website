@@ -60,6 +60,10 @@ switch($_GET['action']) {
     case 'product':
         require __DIR__ . "/controllers/product/controller_product.php";
         break;
+
+    case 'product_data':
+        require __DIR__ . "/controllers/product/controller_get_data_product.php";
+        break;
     
     default:
         require __DIR__ . "/views/common/main.php";

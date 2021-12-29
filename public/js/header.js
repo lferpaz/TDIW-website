@@ -28,7 +28,6 @@ $('#shopping-cart').click(function(){
                     datos = JSON.parse(data_shop);
                     $.get('/index.php', {'action': 'shopping_cart', 'comanda_id': datos.comanda_id}, function(data_linea_comanda) {
                         $('#main-page').html(data_linea_comanda);
-                        console.log(data_linea_comanda);
                     });
                 }
 
