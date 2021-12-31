@@ -11,7 +11,7 @@
                     <?php include_once __DIR__."./../../controllers/category/controller_category.php"; ?>
                 </div>
                 <div class="main-search">
-                    <input type="taxt" name="searh" placeholder="Busca en PadelMania :)">
+                    <input type="taxt" id="search-web" name="searh" placeholder="Busca en PadelMania :)">
 
                 </div>
                                             

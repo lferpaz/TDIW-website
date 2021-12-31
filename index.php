@@ -81,6 +81,10 @@ switch($_GET['action']) {
         require __DIR__ . "/controllers/user/controller_get_user_data.php";
         break;
 
+    case 'search':
+        require __DIR__ . "/controllers/product/controller_find_product.php";
+        break;
+
     default:
         require __DIR__ . "/views/common/main.php";
         break;

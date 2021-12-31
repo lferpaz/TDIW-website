@@ -76,6 +76,27 @@ $('.right-header-end').click(function(){
     });
 });
 
+$('.searh-category').change(function() {
+    $.get('/index.php', {'action': 'product', type: $('.searh-category').val()}).done(function(data) {
+        $('.products').html(data);
+    });
+});
+
+$('#search-web').on('input', function() {
+    var search = $(this).val();
+    if (search != '') {
+        search = '%' + search + '%';
+        $.get('/index.php', {'action': 'search', 'text': search}, function(data) {
+            $('.products').html(data);
+        });
+    } else {
+        $.get('/index.php', {'action': 'product'}, function(data) {
+            $('.products').html(data);
+        });
+    }
+
+});
+
 });
 
 function menuClick(value) {

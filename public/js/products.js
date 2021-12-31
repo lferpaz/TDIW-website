@@ -15,12 +15,6 @@ $(document).ready(function() {
             $('.products').html(data);
         });
     });
-
-    $('.searh-category').change(function() {
-        $.get('/index.php', {'action': 'product', type: $('.searh-category').val()}).done(function(data) {
-            $('.products').html(data);
-        });
-    });
 });
 
 $('#button-add-trolley').click(function() {
