@@ -1,7 +1,29 @@
 
 $(document).ready(function() {
 
- $('.right-header-start').click(function(){
+    $.get('/index.php', {'action': 'session', 'op': 'check'}, function(data){
+        if (data != 'false') {
+            var datos = JSON.parse(data);
+            $.get('/index.php', {'action': 'get_user', 'id': datos.user_id}, function(data_user) {
+                datos = JSON.parse(data_user);
+                $('#photo-user-header').attr('src', datos.photo);
+            });
+        }
+    });
+
+    $.get('/index.php', {'action': 'session', 'op': 'check'}, function(data){
+        if (data != 'false') {
+            var datos = JSON.parse(data);
+            $.get('/index.php', {'action': 'get_user', 'id': datos.user_id}, function(data_user) {
+                datos = JSON.parse(data_user);
+                $('#header_user').text(datos.name);
+            });
+        } else {
+            $('#header_user').text('Usuario');
+        }
+    });
+
+$('.right-header-start').click(function(){
     $.get('/index.php', {'action': 'session', 'op': 'check'}, function(data){
         if (data != 'false') {
             if($('#slide-menu').is(":hidden")) {
@@ -58,7 +80,13 @@ $('.right-header-end').click(function(){
 
 function menuClick(value) {
     if (value == '0') {
-        //User clicked user_page
+        $.get('/index.php', {'action': 'session', 'op': 'check'}, function(data) {
+            var datos = JSON.parse(data);
+            $.get('/index.php', {'action': 'select_user', 'id': datos.user_id}, function(data_user) {
+                $('#main-page').html(data_user);
+            });
+            $('#slide-menu').css({'display': 'none', 'width': '0px'});
+        });
     } else if (value == '1') {
         $.get('/index.php', {'action': 'session', 'op': 'check'}, function(data) {
             var datos = JSON.parse(data);

@@ -302,6 +302,11 @@ body {
     justify-self: end;
 }
 
+#user-img-form {
+    width: 100px;
+    height: 100px;
+}
+
 @media (max-width: 1200px) {
     .left-box {
         display: none;

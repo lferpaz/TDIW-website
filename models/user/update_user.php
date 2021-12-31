@@ -1,7 +1,8 @@
 <?php
-    function create_user($connection, $user_id, $name, $direction, $poblacion, $cp, $phone, $mail, $password, $photo) {
+    function update_user($connection, $user_id, $name, $direction, $poblacion, $cp, $phone, $mail, $password, $photo) {
         try {
-            $query = $connection->prepare("INSERT INTO usuario VALUES(:id, :name, :direction, :poblacion, :cp, :phone, :mail, :password, :photo)");
+            $query = $connection->prepare("UPDATE usuario SET nombre = :name, direccion = :direction, poblacion = :poblacion, 
+                cp = :cp, telefono = :phone, email = :mail, password = :password, foto = :photo WHERE Id = :id");
             
             $query->bindparam(':id', $user_id, PDO::PARAM_INT, 10);
             $query->bindparam(':name', $name, PDO::PARAM_STR, 50);

@@ -68,6 +68,19 @@ switch($_GET['action']) {
     case 'update_cart_number':
         require __DIR__ . "/controllers/common/cart.php";
         break;
+    
+    case 'select_user':
+        require __DIR__ . "/controllers/user/controller_select_user.php";
+        break;
+
+    case 'update_user':
+        require __DIR__ . "/controllers/user/controller_update_user.php";
+        break;
+
+    case 'get_user':
+        require __DIR__ . "/controllers/user/controller_get_user_data.php";
+        break;
+
     default:
         require __DIR__ . "/views/common/main.php";
         break;

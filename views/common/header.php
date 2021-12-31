@@ -19,11 +19,8 @@
                     
             <section class="right-header">
                 <div class="right-header-start">
-                    <img class="img-account" src="public/images/user.png">
-                    <p id="header_user">
-                    <?php if(!isset($_SESSION['name'])) { echo("Usuario");} 
-                        else { echo($_SESSION['name']); }?>
-                    </p> 
+                    <img id ="photo-user-header" class="img-account" src="public/images/user/default.png">
+                    <p id="header_user"></p>
                 </div>
                 <div class="right-header-end">
                     <img class="img-account" src="public/images/shopping-bag.png">
