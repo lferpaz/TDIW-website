@@ -297,7 +297,7 @@ body {
     width: 250px;
     height: 250px;
 }
-#delete-product-cart{
+.delete-product-cart{
     align-self: start;
     justify-self: end;
 }

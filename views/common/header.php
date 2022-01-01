@@ -3,7 +3,7 @@
         <div class="principal-header">
 
             <section class="left-header">
-                    <a href="/../../index.php" alt="main menu"><img src="./public/images/google.png" alt="logo"></a>
+                    <a href="/../../index.php" alt="main menu"><img src="./public/images/logo.png" alt="logo"></a>
             </section>
                     
             <section class="center-header">

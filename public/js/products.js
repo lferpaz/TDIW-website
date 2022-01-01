@@ -1,64 +1,180 @@
 
-$(document).ready(function() {
+$(document).ready(function () {
 
-    $(".product").hover(function() {
+    $(".product").hover(function () {
         $(this).css('height', '410px');
         $(this).find('.btn-more').css('display', 'block');
-    
-    }, function() {
+
+    }, function () {
         $(this).css('height', '300px');
-        $(this).find('.btn-more').css('display', 'none'); 
+        $(this).find('.btn-more').css('display', 'none');
     });
 
-    $(".product").click(function() {
-        $.get('/index.php', {'action': 'get_product', 'id': $(this).attr('id')}).done(function(data) {
+    $(".product").click(function () {
+        $.get('/index.php', { 'action': 'get_product', 'id': $(this).attr('id') }).done(function (data) {
             $('.products').html(data);
         });
     });
 
-    $('.searh-category').change(function() {
-        $.get('/index.php', {'action': 'product', type: $('.searh-category').val()}).done(function(data) {
+    $('.searh-category').change(function () {
+        $.get('/index.php', { 'action': 'product', type: $('.searh-category').val() }).done(function (data) {
             $('.products').html(data);
         });
     });
 });
 
-$('#button-add-trolley').click(function() {
-    $.get('/index.php', {'action': 'session', 'op': 'check'}, function(data){
+$('#button-add-trolley').click(function () {
+    $.get('/index.php', { 'action': 'session', 'op': 'check' }, function (data) {
         if (data == 'false') {
             window.location.replace('/../../index.php?action=login');
         } else {
             var d = new Date();
-            var month = d.getMonth()+1;
+            var month = d.getMonth() + 1;
             var day = d.getDate();
-            var time = ((day).length<2 ? '0' : '') + day + '/' + ((''+month).length<2 ? '0' : '') + month + '/' + d.getFullYear();
+            var time = ((day).length < 2 ? '0' : '') + day + '/' + (('' + month).length < 2 ? '0' : '') + month + '/' + d.getFullYear();
             var datos = JSON.parse(data);
             var id_product = $('.product-detaill').attr('id');
 
-            $.get('/index.php', {'action': 'create_comanda', 'user_id': datos.user_id, 'date':time} , function(data_created_comanda) {
-                $.get('/index.php', {'action': 'select_comanda', 'user_id': datos.user_id}, function(data_comanda) {      
+            
+            $.get('/index.php', { 'action': 'create_comanda', 'user_id': datos.user_id, 'date': time }, function (data_created_comanda) {
+                $.get('/index.php', { 'action': 'select_comanda', 'user_id': datos.user_id }, function (data_comanda) {
                     comanda = JSON.parse(data_comanda);
                     var id_comanda = comanda.comanda_id;
                     var total_elementos = parseInt(comanda.total_elementos) + 1;
                     var total_importe = parseFloat(comanda.importe_total) + parseFloat($('#price').text());
 
-                    $.get('/index.php', {'action': 'update_comanda', 'id': id_comanda, 'total_elementos': total_elementos, 'total_importe': total_importe}, function(update_comanda){
-                        $.get('/index.php', {'action': 'select_linea_comanda', 'comanda_id': id_comanda, 'producto_id': id_product}, function(data_linea_comanda) {
-                            if(data_linea_comanda == 'false') {
-                                $.get('/index.php', {'action': 'create_linea_comanda', 'comanda_id': id_comanda, 'producto_id': id_product, 'cantidad': 1, 'nombre_producto':$('#name').text(), 'precio_producto': $('#price').text()});
+                    $.get('/index.php', { 'action': 'update_comanda', 'id': id_comanda, 'total_elementos': total_elementos, 'total_importe': total_importe }, function (update_comanda) {
+                        $.get('/index.php', { 'action': 'select_linea_comanda', 'comanda_id': id_comanda, 'producto_id': id_product }, function (data_linea_comanda) {
+                            if (data_linea_comanda == 'false') {
+                                $.get('/index.php', { 'action': 'create_linea_comanda', 'comanda_id': id_comanda, 'producto_id': id_product, 'cantidad': 1, 'nombre_producto': $('#name').text(), 'precio_producto': $('#price').text() });
                             } else {
                                 var linea = JSON.parse(data_linea_comanda);
                                 var cantidad = parseInt(linea.cantidad) + 1;
-                                $.get('/index.php', {'action': 'update_linea_comanda', 'comanda_id':id_comanda, 'cantidad':cantidad ,'product_id':id_product});
+                                $.get('/index.php', { 'action': 'update_linea_comanda', 'comanda_id': id_comanda, 'cantidad': cantidad, 'product_id': id_product });
                             }
-                            $.get('/index.php', {'action': 'update_cart_number', 'total_items': total_elementos}, function(update_cart_number){
-                                $('#number_cart').text('('+total_elementos+')');
+                            $.get('/index.php', { 'action': 'update_cart_number', 'total_items': total_elementos }, function (update_cart_number) {
+                                $('#number_cart').text('(' + total_elementos + ')');
                             });
-                        });      
+
+                        });
                     });
                 });
                 alert('Producto añadido añadido cesta.');
-            });       
+            });
         }
     })
+});
+
+$('.delete-product-cart').click(function () {
+    $.get('/index.php', { 'action': 'session', 'op': 'check' }, function (data) {
+        if (data == 'false') {
+            alert('Tu carro de compras esta vacio :( .');
+            window.location.replace('/../../index.php?action=" "');
+        } else {
+            var datos = JSON.parse(data);
+            var id_product = $('.product_cart').attr('id');
+            $.get('/index.php', { 'action': 'select_comanda', 'user_id': datos.user_id }, function (data_comanda) {
+                comanda = JSON.parse(data_comanda);
+                var comanda_id = comanda.comanda_id;
+                var id_cantidad = $('.cantidad_producto').attr('id');
+                var total_elementos = parseInt(comanda.total_elementos) - id_cantidad;
+                var total_importe = parseFloat(comanda.importe_total) + parseFloat($('#price').text());
+
+                $.get('/index.php', { 'action': 'update_comanda', 'id': comanda_id, 'total_elementos': total_elementos, 'total_importe': total_importe }, function (update_comanda) {
+                   
+                    $.get('/index.php', { 'action': 'delete_producto_comanda', 'comanda_id': comanda_id, 'productos_id': id_product }, function (delete_producto_comanda) {
+                        $.get('/index.php', { 'action': 'update_cart_number', 'total_items': total_elementos }, function (update_cart_number) {
+                            $('#number_cart').text('(' + total_elementos + ')');
+                        });
+
+                        $.get('/index.php', { 'action': 'select_comanda', 'user_id': datos.user_id }, function (data_shop) {
+                            if (data_shop != 'false') {
+                                datos = JSON.parse(data_shop);
+                                $.get('/index.php', { 'action': 'shopping_cart', 'comanda_id': datos.comanda_id }, function (data_linea_comanda) {
+                                    $('#main-page').html(data_linea_comanda);
+                                });
+                            }
+                        });
+
+                        if (total_elementos == 0)
+                            window.location.replace('/../../index.php?action=" "');
+
+                    });
+                });
+            });
+            alert('Producto Eliminado');
+        }
+    })
+});
+
+
+function delete_cart(n){
+    $.get('/index.php', { 'action': 'session', 'op': 'check' }, function (data) {
+        if (data == 'false') {
+            alert('Tu carro de compras esta vacio :( .');
+            window.location.replace('/../../index.php?action=" "');
+        } else {
+            var datos = JSON.parse(data);
+            $.get('/index.php', { 'action': 'select_comanda', 'user_id': datos.user_id }, function (data_comanda) {
+                comanda = JSON.parse(data_comanda);
+                var id_comanda = comanda.comanda_id;
+                $.get('/index.php', { 'action': 'delete_comanda', 'id': id_comanda }, function (delete_comanda) {
+                    var total_elementos = 0;
+                    $.get('/index.php', { 'action': 'update_cart_number', 'total_items': total_elementos }, function (update_cart_number) {
+                        $('#number_cart').text('(' + total_elementos + ')');
+                    });
+                   if(n==0)
+                    window.location.replace('/../../index.php?action=" "');
+                });
+            });
+            alert('Carrito de compras vacio');
+        }
+    })
+}
+
+
+$('#delete-cart').click(function () {
+    delete_cart(0);
+});
+
+$('#shop-products').click(function () {
+    $.get('/index.php', { 'action': 'session', 'op': 'check' }, function (data) {
+        if (data == 'false') {
+            alert('Tu carro de compras esta vacio :( .');
+            window.location.replace('/../../index.php?action=" "');
+        } else {
+            
+            var datos = JSON.parse(data);
+           
+            $.get('/index.php', { 'action': 'select_comanda', 'user_id': datos.user_id }, function (data_comanda) {
+               
+                comanda = JSON.parse(data_comanda);
+                var id_comanda = comanda.comanda_id;
+                
+                if(parseInt(comanda.total_elementos) !=0){
+                   
+                    $.get('/index.php', { 'action': 'confirm_comanda', 'comanda_id':  id_comanda }, function (confirm_comanda) {
+                    $('#main-page').html(confirm_comanda);    
+                });
+                   
+                
+                }   
+            });
+            alert('Realizando pedido');
+        
+        }
+    })
+});
+
+$('#yes-confirm-compra').click(function () {
+    
+    $.get('/index.php', { 'action': 'user_confirm' }, function (user_confirm) {
+        delete_cart();
+        $('#main-page').html(user_confirm);   
+        $('#turn_menu').click(function () { 
+            window.location.replace('/../../index.php?action=" "');
+        });
+       
+    });
+
 });
