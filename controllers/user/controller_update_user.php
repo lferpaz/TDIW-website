@@ -49,9 +49,9 @@ foreach($users as $user) {
         $photo = $user['foto'];
         $file_destination_relative_path = $photo;
     } else {
-        $filesdestinationPath = $filesAbsolutePath.$user_id.".jpg";
+        $filesdestinationPath = $filesAbsolutePath.$user_id.".".pathinfo($photo, PATHINFO_EXTENSION);
         move_uploaded_file($photo, $filesdestinationPath);
-        $file_destination_relative_path = $filesRelativePath.$user_id.".jpg";
+        $file_destination_relative_path = $filesRelativePath.$user_id.".".pathinfo($photo, PATHINFO_EXTENSION);
     }
 }
 

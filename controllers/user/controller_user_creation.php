@@ -19,6 +19,6 @@ if ($correct) {
     $_SESSION['total_items'] = 0;
     header("Location: ../../index.php");
 } else {
-    header("Location: ../../signup.php");
+    header("Location: ../../index.php?action=signup&error=signup");
 }
 ?>
