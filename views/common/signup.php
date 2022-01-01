@@ -5,6 +5,7 @@
         <title>Regístrate | PadelMania.com</title>
         <link rel="stylesheet" href="public/css/style.css">
         <link rel="stylesheet" href="public/css/component.css">
+        <script src="./public/js/jquery-3.6.0.min.js" type="text/javascript"></script>
     </head> 
     <body>
         <div class="form-page">
@@ -31,20 +32,70 @@
         
                 <section class="right-box">
                     <h2>Crear Cuenta</h2>
-                    <form action=./controllers/user/controller_user_creation.php method="post" id="login">
-                        <input class="form-input" type="text" name="dni" placeholder="DNI/NIE*" required><br>
-                        <input class="form-input" type="text" name="name" placeholder="Nombre*" required><br>
-                        <input class="form-input" type="text" name="last_name" placeholder="Apellido"><br>
-                        <input class="form-input" type="mail" name="mail" placeholder="E-mail*" required><br>
-                        <input class="form-input" type="text" name="phone" placeholder="Telefono" required><br>
-                        <input class="form-input" type="text" name="direction" placeholder="Direccion" required><br>
-                        <input class="form-input" type="text" name="poblacion" placeholder="Poblacion" required><br>
-                        <input class="form-input" type="text" name="cp" placeholder="Codigo postal" required><br>
-                        <input class="form-input" type="password" name="password" placeholder="Contraseña*" required><br>
-                        <input class="form-input" type="password" name="password_confirmation" placeholder="Repetir Contraseña*" required><br>
-    
-                        <input type="checkbox" class="form-checkbox" name="conditions" value="condition">
-                        <label for="conditions"> He leído y acepto la <a href="#" alt="link politica de privacidad">política de privacidad</a></label><br>
+                    <form id="form-signup" action="/../../index.php?action=create_user" method="post" class="form">
+                        <div class="form-control">
+                            <input id="dni-form" class="form-input" type="text" name="dni" placeholder="DNI/NIE*" required>
+                            <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
+                            <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <input id="name-form" class="form-input" type="text" name="name" placeholder="Nombre*" required>
+                            <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
+                            <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <input id="last_name-form" class="form-input" type="text" name="last_name" placeholder="Apellido">
+                            <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
+                            <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <input id="mail-form" class="form-input" type="text" name="mail" placeholder="Email*" required>
+                            <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
+                            <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <input id="phone-form" class="form-input" type="text" name="phone" placeholder="Telefono">
+                            <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
+                            <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <input id="direcction-form" class="form-input" type="text" name="direction" placeholder="Direccion*" required>
+                            <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
+                            <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <input id="poblacion-form" class="form-input" type="text" name="poblacion" placeholder="Poblacion*" required>
+                            <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
+                            <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <input id="cp-form" class="form-input" type="text" name="cp" placeholder="Codigo postal*" required>
+                            <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
+                            <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <input id="password-form" class="form-input" type="password" name="password" placeholder="Contraseña*" required>
+                            <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
+                            <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <input id="password_confirmation-form" class="form-input" type="password" name="password_confirmation" placeholder="Repetir Contraseña*" required>
+                            <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
+                            <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
+                            <small>Error message</small>
+                        </div>
+        
+                        <input type="checkbox" class="form-checkbox" name="conditions" value="condition" required>
+                        <label for="conditions"> He leído y acepto la <a href="#" alt="link politica de privacidad">política de privacidad</a></label>
     
                         <input id="send" type="submit" value="Crear Cuenta">
                   </form>
@@ -57,8 +108,7 @@
                 </section>
             </main>
         </div>
-
+        <script src="public/js/validation.js"></script>
         <script src="public/js/login.js"></script>
-    
     </body>
 </html>

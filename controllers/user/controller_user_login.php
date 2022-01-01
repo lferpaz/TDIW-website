@@ -21,6 +21,6 @@ if (password_verify($_POST['password'], $usuario['password'])) {
     }
     header("Location: ../../index.php");
 } else {
-    header("Location: ../../login.php");
+    header("Location: ../../index.php?action=login&error=login");
 }
 ?>

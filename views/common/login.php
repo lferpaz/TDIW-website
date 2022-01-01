@@ -5,6 +5,7 @@
         <title>Accede a tu cuenta | PadelMania.com</title>
         <link rel="stylesheet" href="./public/css/style.css">
         <link rel="stylesheet" href="./public/css/component.css">
+        <script src="./public/js/jquery-3.6.0.min.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="form-page">
@@ -31,9 +32,19 @@
         
                 <section class="right-box">
                     <h2>Iniciar sesión</h2>
-                    <form action="./controllers/user/controller_user_login.php" method="post" id="login">
-                        <input class="form-input" type="mail" name="mail" placeholder="Email*" required><br>
-                        <input class="form-input" type="password" name="password" placeholder="Contraseña*" required><br>
+                    <form id="form-login" action="/../../index.php?action=user_login" method="post" class="form">
+                        <div class="form-control">
+                            <input id="mail-form" class="form-input" type="text" name="mail" placeholder="Email*" required>
+                            <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
+                            <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
+                            <small>Error message</small>
+                        </div>
+                        <div class="form-control">
+                            <input id="password-form" class="form-input" type="password" name="password" placeholder="Contraseña*" required>
+                            <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
+                            <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
+                            <small>Error message</small>
+                        </div>
     
                         <a href="#" alt="link para recuperar contraseña">He olvidado mi contraseña</a>
     
@@ -48,7 +59,7 @@
                 </section>
             </main>
         </div>
-
+        <script src="public/js/validation.js"></script>
         <script src="public/js/login.js"></script>
     </body>
 </html>
