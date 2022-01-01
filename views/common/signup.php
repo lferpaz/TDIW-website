@@ -32,7 +32,7 @@
         
                 <section class="right-box">
                     <h2>Crear Cuenta</h2>
-                    <form id="form-signup" method="post" class="form">
+                    <form id="form-signup" action="/../../index.php?action=create_user" method="post" class="form">
                         <div class="form-control">
                             <input id="dni-form" class="form-input" type="text" name="dni" placeholder="DNI/NIE*" required>
                             <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
