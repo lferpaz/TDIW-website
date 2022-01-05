@@ -7,10 +7,11 @@ else {
         $comanda_user_id = $comanda['usuario_id'];
         $total_elementos = $comanda['total_elementos'];
         $total_importe = $comanda['importe_total'];
+        $cerrada = $comanda['cerrada'];
     }
     $data = ['comanda_id' => $comanda_id, 'comanda_data' => $comanda_data, 
             'comanda_user_id' => $comanda_user_id, 'total_elementos' => $total_elementos, 
-            'importe_total' => $total_importe];
+            'importe_total' => $total_importe, 'cerrada' => $cerrada];
     echo(json_encode($data));
 }
 ?>

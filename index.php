@@ -17,10 +17,6 @@ switch($_GET['action']) {
     case 'signup':
         require __DIR__ . "/views/common/signup.php";
         break;
-    
-    case 'user_confirm':
-        require __DIR__ . "/views/common/user_confirm.php";
-        break;
         
     case 'session':
         require __DIR__ . "/controllers/common/session.php";
@@ -89,14 +85,19 @@ switch($_GET['action']) {
     case 'update_comanda':
         require __DIR__ . "/controllers/comanda/controller_update_comanda.php";
         break;
+
     case 'delete_comanda':
         require __DIR__ . "/controllers/comanda/controller_delete_comanda.php";
         break;
+
     case 'delete_producto_comanda':
         require __DIR__ . "/controllers/linea_comanda/controller_delete_producto_comanda.php";
         break;
     
-
+    case 'user_confirm':
+        require __DIR__ . "/controllers/comanda/controller_confirmated_comanda.php";
+        break;
+    
     //linea comanda
     case 'shopping_cart':
             require __DIR__ . "/controllers/linea_comanda/controller_select_linea_comanda_by_id.php";
