@@ -139,10 +139,12 @@ function delete_cart(n){
             $.get('/index.php', { 'action': 'delete_comanda', 'id': id_comanda }, function (delete_comanda) {
                 var total_elementos = 0;
                 $.get('/index.php', { 'action': 'update_cart_number', 'total_items': total_elementos }, function (update_cart_number) {
-                    $('#number_cart').text('(' + total_elementos + ')');
+                    $('#number_cart').text('(0)');
                 });
-               if(n==0)
-                window.location.replace('/../../index.php?action=" "');
+                if(n==0) {
+                    window.location.replace('/../../index.php');
+                    alert('Carrito de compras vacio');
+                }
             });
         });
     });
@@ -151,7 +153,6 @@ function delete_cart(n){
 
 $('#delete-cart').click(function () {
     delete_cart(0);
-    alert('Carrito de compras vacio');
 });
 
 $('#shop-products').click(function () {
@@ -160,25 +161,19 @@ $('#shop-products').click(function () {
             alert('Tu carro de compras esta vacio :( .');
             window.location.replace('/../../index.php?action=" "');
         } else {
-            
             var datos = JSON.parse(data);
-           
             $.get('/index.php', { 'action': 'select_comanda', 'user_id': datos.user_id }, function (data_comanda) {
-               
                 comanda = JSON.parse(data_comanda);
                 var id_comanda = comanda.comanda_id;
-                
-                if(parseInt(comanda.total_elementos) !=0){
-                   
+
+                if(parseInt(comanda.total_elementos) !=0) {
                     $.get('/index.php', { 'action': 'confirm_comanda', 'comanda_id':  id_comanda }, function (confirm_comanda) {
-                    $('#main-page').html(confirm_comanda);    
-                });
-                   
-                
-                }   
+                        $('#main-page').html(confirm_comanda);    
+                    });
+                }
             });
         }
-    })
+    });
 });
 
 $('#yes-confirm-compra').click(function () {
