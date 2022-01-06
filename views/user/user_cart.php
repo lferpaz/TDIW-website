@@ -19,10 +19,10 @@ if ($linia_comandas == 'false') {
                     <div class="product_cart_info">
                         <h2><?php echo $product_data['name']; ?></h2>
                         <p><?php echo $product_data['description']; ?></p>
-                        <p>Precio: <?php echo $product_data['price']; ?>€</p>
-                        <p class="cantidad_producto" id=<?php echo $linia_comanda['cantidad']; ?>>Cantidad: <?php echo $linia_comanda['cantidad']; ?></p>
+                        <p class="precio_producto" id=<?php echo $product_data['price']; ?>>Precio: <?php echo $product_data['price']; ?>€</p>
+                        <p class="cantidad_producto" id=<?php echo $linia_comanda['cantidad'];?>> Cantidad: <?php echo $linia_comanda['cantidad']; ?></p>
                     </div>
-                    <input class="delete-product-cart" id=<?php echo $product_data['id'];?>  type="button" value="Eliminar Producto">
+                    <input class="delete-product-cart" type="button" value="Eliminar Producto">
                 </section><?php
             }
             ?>
