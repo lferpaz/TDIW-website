@@ -20,5 +20,6 @@ session_start();
             </section>
         </main>
         <script src="./public/js/products.js"></script>
+        <script src="./public/js/user.js"></script>
     </body>
 </html>

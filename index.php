@@ -78,6 +78,10 @@ switch($_GET['action']) {
         require __DIR__ . "/controllers/comanda/controller_select_comanda.php";
         break;
 
+    case 'select_closed_comanda':
+        require __DIR__ . "/controllers/comanda/controller_select_closed_comanda.php";
+        break;
+
     case 'confirm_comanda':
         require __DIR__ . "/controllers/comanda/controller_confirm_comanda.php";
         break;

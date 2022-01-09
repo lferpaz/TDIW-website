@@ -111,14 +111,8 @@ function menuClick(value) {
     } else if (value == '1') {
         $.get('/index.php', {'action': 'session', 'op': 'check'}, function(data) {
             var datos = JSON.parse(data);
-            $.get('/index.php', {'action': 'select_comanda', 'user_id': datos.user_id}, function(data_shop) { 
-                if (data_shop != 'false') {
-                    datos = JSON.parse(data_shop);
-                    $.get('/index.php', {'action': 'shopping_cart', 'comanda_id': datos.comanda_id}, function(data_linea_comanda) {
-                        $('#main-page').html(data_linea_comanda);
-                    });
-                }
-
+            $.get('/index.php', {'action': 'select_closed_comanda', 'user_id': datos.user_id}, function(data_user_order) {
+                $('#main-page').html(data_user_order);
             });
             $('#slide-menu').css({'display': 'none', 'width': '0px'});
         });

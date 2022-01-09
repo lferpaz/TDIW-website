@@ -182,7 +182,11 @@ $('#yes-confirm-compra').click(function () {
         $.get('/index.php', { 'action': 'select_comanda', 'user_id': datos.user_id }, function (data_comanda) {
             comanda = JSON.parse(data_comanda);
             var id_comanda = comanda.comanda_id;
-            $.get('/index.php', { 'action': 'user_confirm', 'id':id_comanda, 'state':1 }, function (user_confirm) {
+            var d = new Date();
+            var month = d.getMonth() + 1;
+            var day = d.getDate();
+            var time = ((day).length < 2 ? '0' : '') + day + '/' + (('' + month).length < 2 ? '0' : '') + month + '/' + d.getFullYear();
+            $.get('/index.php', { 'action': 'user_confirm', 'id':id_comanda, 'state':1, 'data':time }, function (user_confirm) {
                 delete_cart();
                 $('#main-page').html(user_confirm);   
                 $('#turn_menu').click(function () { 
