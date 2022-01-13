@@ -49,8 +49,8 @@ body {
 .header img{
     margin-left: 57px;
     margin-top: 50px;
-    width: 35px;
-    height: 35px;
+    width: 170px;
+    height: 65px;
 }
 
 .box {
@@ -230,6 +230,7 @@ body {
 }
 
 .products {
+    margin-left: 3%;
     display: grid;
     grid-template-columns: auto auto auto auto;
     grid-gap: 25px;
@@ -237,7 +238,7 @@ body {
 
 .product {
     width: 300px;
-    height: 300px;
+    height: 335px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0px 0px 5px #000;
@@ -362,6 +363,17 @@ body {
 #user-img-form {
     width: 100px;
     height: 100px;
+}
+
+.delete-product-cart {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    margin-top: 12px;
+}
+
+.delete-product-cart:hover {
+    cursor: pointer;
 }
 
 @media (max-width: 1200px) {

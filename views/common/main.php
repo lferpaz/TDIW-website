@@ -16,10 +16,11 @@ session_start();
         <?php include_once __DIR__."./header.php"; ?>
         <main id="main-page">
             <section class="products">
-                <?php include_once __DIR__."/../../controllers/product/controller_product.php"; ?>
+                <?php 
+                $_GET['action'] = 'product';
+                include __DIR__."/../../index.php"; ?>
             </section>
         </main>
         <script src="./public/js/products.js"></script>
-        <script src="./public/js/user.js"></script>
     </body>
 </html>

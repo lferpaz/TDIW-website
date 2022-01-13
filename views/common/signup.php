@@ -10,7 +10,7 @@
     <body>
         <div class="form-page">
             <header class="header">
-                <a href="/../../index.php" alt="main menu"><img src="public/images/google.png" alt="logo"></a>
+                <a href="/../../index.php" alt="main menu"><img src="public/images/logo.png" alt="logo"></a>
             </header>
     
             <main class="box">

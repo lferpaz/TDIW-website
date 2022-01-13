@@ -7,8 +7,7 @@
             </section>
                     
             <section class="center-header">
-                <div>
-                    <?php include_once __DIR__."./../../controllers/category/controller_category.php"; ?>
+                <div id="category-box-header">
                 </div>
                 <div class="main-search">
                     <input type="taxt" id="search-web" name="searh" placeholder="Busca en PadelMania :)">

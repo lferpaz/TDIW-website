@@ -6,7 +6,7 @@ $(document).ready(function () {
         $(this).find('.btn-more').css('display', 'block');
 
     }, function () {
-        $(this).css('height', '300px');
+        $(this).css('height', '335px');
         $(this).find('.btn-more').css('display', 'none');
     });
 

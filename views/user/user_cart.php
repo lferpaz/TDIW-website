@@ -22,7 +22,7 @@ if ($linia_comandas == 'false') {
                         <p class="precio_producto" id=<?php echo $product_data['price']; ?>>Precio: <?php echo $product_data['price']; ?>€</p>
                         <p class="cantidad_producto" id=<?php echo $linia_comanda['cantidad'];?>> Cantidad: <?php echo $linia_comanda['cantidad']; ?></p>
                     </div>
-                    <input class="delete-product-cart" type="button" value="Eliminar Producto">
+                    <img class="delete-product-cart" type="button" alt="Eliminar Producto" src="/../../public/images/garbage.png"></img>
                 </section><?php
             }
             ?>

@@ -1,4 +1,8 @@
 
+$.get('/index.php', {'action':'load_category'}, function(data_category) {
+    $('#category-box-header').html(data_category);
+});
+
 $(document).ready(function() {
 
     $.get('/index.php', {'action': 'session', 'op': 'check'}, function(data){
