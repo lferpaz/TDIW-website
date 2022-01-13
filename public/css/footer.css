@@ -1,0 +1,48 @@
+footer {
+    margin-top: 40px;
+    width: 100%;
+    float: left;
+    background: url(../images/lt-divider.png) 0 0 repeat-x;
+}
+
+#footer-container {
+    float: left;
+    width: 100%;
+    height: 180px;
+    margin: 60px 0 0 0;
+}
+
+#footer-inner {
+    width: 70%;
+    height: 180px;
+    margin: 0 auto;
+    border-bottom: 4px solid #554d47;
+}
+
+#copyright {
+    float: left;
+    padding-top: 140px;
+}
+
+#social {
+    float: right;
+    padding-top: 118px;
+}
+
+#social ul {
+    float: right;
+    list-style: none;
+    margin: 0;
+}
+
+#social ul li {
+    float: left;
+    margin-left: 15px;
+    width: 40px;
+    height: 40px;
+}
+
+#social ul li img {
+    width: 40px;
+    height: 40px;
+}

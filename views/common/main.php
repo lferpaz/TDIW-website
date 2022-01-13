@@ -9,6 +9,7 @@ session_start();
         <link rel="stylesheet" href="./public/css/component.css">
         <link rel="stylesheet" href="./public/css/style.css">
         <link rel="stylesheet" href="./public/css/header.css">
+        <link rel="stylesheet" href="./public/css/footer.css">
         <script src="./public/js/jquery-3.6.0.min.js" type="text/javascript"></script>
        
     </head>
@@ -21,6 +22,7 @@ session_start();
                 include __DIR__."/../../index.php"; ?>
             </section>
         </main>
+        <?php include_once __DIR__."./footer.php"; ?>
         <script src="./public/js/products.js"></script>
     </body>
 </html>
