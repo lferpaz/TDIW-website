@@ -390,6 +390,12 @@ body {
     cursor: pointer;
 }
 
+.user_page {
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
 @media (max-width: 1200px) {
     .left-box {
         display: none;
