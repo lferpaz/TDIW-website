@@ -5,6 +5,12 @@ $.get('/index.php', {'action':'load_category'}, function(data_category) {
 
 $(document).ready(function() {
 
+    $('#main-page').click(function() {
+        if(!$('#slide-menu').is(":hidden")) {
+            $('#slide-menu').css({'display': 'none', 'width': '0px'});
+        }
+    });
+
     $.get('/index.php', {'action': 'session', 'op': 'check'}, function(data){
         if (data != 'false') {
             var datos = JSON.parse(data);
@@ -73,6 +79,8 @@ $(document).ready(function() {
                         $.get('/index.php', {'action': 'shopping_cart', 'comanda_id': datos.comanda_id}, function(data_linea_comanda) {
                             $('#main-page').html(data_linea_comanda);
                         });
+                    } else {
+                        alert ('No hay ningun prodcuto en la cesta.');
                     }
 
                 });

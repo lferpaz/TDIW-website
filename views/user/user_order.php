@@ -1,4 +1,8 @@
-<?php 
+<?php
+if (empty($comandas)) {?>
+    <h1>No hay comandas</h1>
+    <?php
+}
 foreach($comandas as $comanda) {
     $total_price = 0;
     $_GET['comanda_id'] = $comanda['Id'];

@@ -113,6 +113,8 @@
     margin-bottom: 0px;
 }
 
+
+
 @media (max-width: 992px) {
     .principal-header {
         flex-direction: column;
