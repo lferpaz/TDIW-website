@@ -3,7 +3,7 @@
         try {
             $query = $connection->prepare("INSERT INTO usuario VALUES(:id, :name, :direction, :poblacion, :cp, :phone, :mail, :password, :photo)");
             
-            $query->bindparam(':id', $user_id, PDO::PARAM_INT, 10);
+            $query->bindparam(':id', $user_id, PDO::PARAM_STR, 10);
             $query->bindparam(':name', $name, PDO::PARAM_STR, 50);
             $query->bindparam(':direction', $direction, PDO::PARAM_STR, 150);
             $query->bindparam(':poblacion', $poblacion, PDO::PARAM_STR, 100);

@@ -20,18 +20,18 @@ $(document).ready(function() {
         var password_confirmation = $(this).find("input[name='password_confirmation']").val();
         var correct = true;
 
-        if(dni.length != 8) {
-            setErrorFor($('#dni-form'), "El DNI debe tener 8 caracteres");
+        if(dni.length == 0) {
+            setErrorFor($('#dni-form'), "El campo DNI es obligatorio");
             correct = false;
-        } else if (!isNumeric(dni)) {
-            setErrorFor($('#dni-form'), "El DNI debe contener solo números");
+        } else if (!isDni(dni)) {
+            setErrorFor($('#dni-form'), "El DNI es incorrecto (8 o 9 dígitos y una letra mayúscula)");
             correct = false;
         } else {
             setSuccessFor($('#dni-form'));
         }
         
-        if (name.length < 3 || name.length > 15) {
-            setErrorFor($('#name-form'), "El nombre debe tener al menos 3 caracteres y como máximo 15 caracteres");
+        if (name.length == 0 || name.length > 15) {
+            setErrorFor($('#name-form'), "El nombre debe tener como máximo 15 caracteres");
             correct = false;
         } else if (!isAlpha(name)) {
             setErrorFor($('#name-form'), "El nombre debe contener solo letras");
@@ -40,8 +40,8 @@ $(document).ready(function() {
             setSuccessFor($('#name-form'));
         }
 
-        if (last_name.length != 0 && (last_name.length < 3 || last_name.length > 15)) {
-            setErrorFor($('#last_name-form'), "El apellido debe tener al menos 3 caracteres y como máximo 15 caracteres");
+        if (last_name.length != 0 && (last_name.length > 20 || !isAlpha(last_name))) {
+            setErrorFor($('#last_name-form'), "El apellido debe tener como máximo 20 caracteres");
             correct = false;
         } else {
             setSuccessFor($('#last_name-form'));
@@ -155,8 +155,8 @@ $(document).ready(function() {
             }
         }
         if (name.length != 0) {
-            if (name.length < 3 || name.length > 15) {
-                setErrorFor($('#name-form'), "El nombre debe tener al menos 3 caracteres y como máximo 15 caracteres");
+            if (name.length > 40) {
+                setErrorFor($('#name-form'), "El nombre debe tener como máximo 40 caracteres");
                 correct = false;
             } else if (!isAlpha(name)) {
                 setErrorFor($('#name-form'), "El nombre debe contener solo letras");
@@ -183,7 +183,7 @@ $(document).ready(function() {
             }
         }
         /*if (direction.lenght != 0) {
-            if (direction.lenght != 0  && (direction.length < 10 || direction.length > 50)) {
+            if (direction.length < 10 || direction.length > 50) {
                 setErrorFor($('#direction-form'), "La dirección debe tener al menos 10 caracteres y como máximo 50 caracteres");
                 correct = false;
             } else {
@@ -222,7 +222,6 @@ $(document).ready(function() {
                 setSuccessFor($('#password_confirmation-form'));
             }
         }
-        console.log(correct);
         if (!correct) {
             e.preventDefault();
         }
@@ -234,11 +233,15 @@ function isEmail(email) {
 }
 
 function isAlpha(text) {
-	return text.match(/^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$/);
+	return text.match(/^[a-zA-Z_]+( [a-zA-Z_]+)*$/);
 }
 
 function isNumeric(text) {
 	return text.match(/^[0-9]+$/);
+}
+
+function isDni(dni) {
+    return dni.match(/^[0-9]{8,9}[A-Z]$/);
 }
 
 function setErrorFor(input, message) {
