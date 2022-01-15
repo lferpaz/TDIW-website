@@ -395,6 +395,29 @@ body {
     margin-right: 25%;
 }
 
+.product_quantity {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.product_quantity_buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.product_quantity_buttons img {
+    width: 20px;
+    height: 20px;
+}
+
+.product_quantity_buttons img:hover {
+    cursor: pointer;
+}
+
 @media (max-width: 1200px) {
     .left-box {
         display: none;

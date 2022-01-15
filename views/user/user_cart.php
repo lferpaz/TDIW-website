@@ -20,7 +20,14 @@ if (empty($linia_comandas)) {?>
                         <h2><?php echo $product_data['name']; ?></h2>
                         <p><?php echo $product_data['description']; ?></p>
                         <p class="precio_producto" id=<?php echo $product_data['price']; ?>>Precio: <?php echo $product_data['price']; ?>€</p>
-                        <p class="cantidad_producto" id=<?php echo $linia_comanda['cantidad'];?>> Cantidad: <?php echo $linia_comanda['cantidad']; ?></p>
+                        <div class="product_quantity">
+                            <p class="cantidad_producto" id=<?php echo $linia_comanda['cantidad'];?>> Cantidad: <?php echo $linia_comanda['cantidad']; ?></p>
+                            <div class="product_quantity_buttons">
+                                <img class="product_quantity_button_plus" id="product_quantity_button_plus" alt="arrow_up" src="/../../public/images/up-arrow.png">
+                                <img class="product_quantity_button_minus" id="product_quantity_button_minus" alt="arrow_down" src="/../../public/images/down-arrow.png">
+                                
+                            </div>
+                        </div>
                     </div>
                     <img class="delete-product-cart" type="button" alt="Eliminar Producto" src="/../../public/images/garbage.png"></img>
                 </section><?php
