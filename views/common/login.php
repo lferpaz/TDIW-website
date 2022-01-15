@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Accede a tu cuenta | PadelMania.com</title>
+        <link rel="shortcut icon" href="./public/images/logo_reduced.png">
         <link rel="stylesheet" href="./public/css/style.css">
         <link rel="stylesheet" href="./public/css/component.css">
         <script src="./public/js/jquery-3.6.0.min.js" type="text/javascript"></script>

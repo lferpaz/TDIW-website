@@ -62,14 +62,14 @@ $(document).ready(function() {
         } else {    
             setSuccessFor($('#phone-form'));
         }
-        if (direction.length < 10 || direction.length > 50) {
-            setErrorFor($('#direcction-form'), "La dirección debe tener al menos 10 caracteres y como máximo 50 caracteres");
+        if (direction.length < 10 || direction.length > 30) {
+            setErrorFor($('#direcction-form'), "La dirección debe tener al menos 10 caracteres y como máximo 30 caracteres");
             correct = false;
         } else {
             setSuccessFor($('#direcction-form'));
         }
-        if (poblacion.length < 5 || poblacion.length > 25) {
-            setErrorFor($('#poblacion-form'), "La población debe tener al menos 5 caracteres y como máximo 25 caracteres");
+        if (poblacion.length < 5 || poblacion.length > 30) {
+            setErrorFor($('#poblacion-form'), "La población debe tener al menos 5 caracteres y como máximo 30 caracteres");
             correct = false;
         } else {
             setSuccessFor($('#poblacion-form'));
@@ -183,16 +183,16 @@ $(document).ready(function() {
             }
         }
         /*if (direction.lenght != 0) {
-            if (direction.length < 10 || direction.length > 50) {
-                setErrorFor($('#direction-form'), "La dirección debe tener al menos 10 caracteres y como máximo 50 caracteres");
+            if (direction.length < 10 || direction.length > 30) {
+                setErrorFor($('#direction-form'), "La dirección debe tener al menos 10 caracteres y como máximo 30 caracteres");
                 correct = false;
             } else {
                 setSuccessFor($('#direction-form'));
             }
         }*/
         if (poblacion.length != 0) {
-            if (poblacion.length < 5 || poblacion.length > 25) {
-                setErrorFor($('#poblacion-form'), "La población debe tener al menos 5 caracteres y como máximo 25 caracteres");
+            if (poblacion.length < 5 || poblacion.length > 30) {
+                setErrorFor($('#poblacion-form'), "La población debe tener al menos 5 caracteres y como máximo 30 caracteres");
                 correct = false;
             } else {
                 setSuccessFor($('#poblacion-form'));
