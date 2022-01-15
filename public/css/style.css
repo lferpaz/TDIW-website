@@ -418,6 +418,18 @@ body {
     cursor: pointer;
 }
 
+.main-banner {
+    display: flex;
+    justify-content: center;
+    gap: 6%;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.banner-container img {
+    height: 200px;
+}
+
 @media (max-width: 1200px) {
     .left-box {
         display: none;

@@ -12,12 +12,14 @@ $(document).ready(function () {
 
     $(".product").click(function () {
         $.get('/index.php', { 'action': 'get_product', 'id': $(this).attr('id') }).done(function (data) {
+            $('.main-banner').css('display', 'none');
             $('.products').html(data);
         });
     });
 
     $('.searh-category').change(function () {
         $.get('/index.php', { 'action': 'product', type: $('.searh-category').val() }).done(function (data) {
+            $('.main-banner').css('display', 'none');
             $('.products').html(data);
         });
     });

@@ -16,6 +16,17 @@ session_start();
     <body>
         <?php include_once __DIR__."./header.php"; ?>
         <main id="main-page">
+            <section class="main-banner">
+                <div class="banner-container">
+                    <a href=""><img src="/../../public/images/banner_1.jpg" alt="banner-1"></a>
+                </div>
+                <div class="banner-container">
+                    <a href="https://play.google.com/store/apps/details?id=com.miguel.match_point"><img src="/../../public/images/banner_2.png" alt="banner-2"></a>
+                </div>
+                <div class="banner-container">
+                    <a href=""><img src="/../../public/images/banner_3.jpg" alt="banner-3"></a>
+                </div>
+            </section>
             <section class="products">
                 <?php 
                 $_GET['action'] = 'product';
