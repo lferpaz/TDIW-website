@@ -26,6 +26,8 @@
                     <p>Carrito </p>
                     <p id="number_cart"> (<?php if(!isset($_SESSION['total_items'])) {echo (0);}
                                                             else { echo($_SESSION['total_items']); }?>)</p>
+                    <p id="total_price_cart"> <?php if(!isset($_SESSION['total_price'])) {echo ('0.0');}
+                                                            else { echo($_SESSION['total_price']); }?> €</p>
                 </div>
             </section>
 

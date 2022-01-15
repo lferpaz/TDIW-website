@@ -38,8 +38,6 @@ $('#button-add-trolley').click(function () {
             var datos = JSON.parse(data);
             var id_product = $('.product-detaill').attr('id');
 
-
-
             $.get('/index.php', { 'action': 'select_comanda', 'user_id': datos.user_id }, function (data_comanda) {
                 if (data_comanda == 'false') {
                     $.get('/index.php', { 'action': 'create_comanda', 'user_id': datos.user_id, 'date': time }, function (data_created_comanda) {
@@ -80,8 +78,9 @@ function add_product_to_cart(data_comanda, id_product) {
                 var cantidad = parseInt(linea.cantidad) + 1;
                 $.get('/index.php', { 'action': 'update_linea_comanda', 'comanda_id': id_comanda, 'cantidad': cantidad, 'product_id': id_product });
             }
-            $.get('/index.php', { 'action': 'update_cart_number', 'total_items': total_elementos }, function (update_cart_number) {
+            $.get('/index.php', { 'action': 'update_cart_number', 'total_items': total_elementos, 'total_price': total_importe }, function (update_cart_number) {
                 $('#number_cart').text('(' + total_elementos + ')');
+                $('#total_price_cart').text(total_importe.toFixed(2) + ' €');
             });
         });
     });
@@ -94,10 +93,13 @@ function delete_cart(n){
         $.get('/index.php', { 'action': 'select_comanda', 'user_id': datos.user_id }, function (data_comanda) {
             comanda = JSON.parse(data_comanda);
             var id_comanda = comanda.comanda_id;
+
             $.get('/index.php', { 'action': 'delete_comanda', 'id': id_comanda }, function (delete_comanda) {
                 var total_elementos = 0;
-                $.get('/index.php', { 'action': 'update_cart_number', 'total_items': total_elementos }, function (update_cart_number) {
+                var total_importe = 0.0;
+                $.get('/index.php', { 'action': 'update_cart_number', 'total_items': total_elementos, 'total_price': total_importe}, function (update_cart_number) {
                     $('#number_cart').text('(0)');
+                    $('#total_price_cart').text('0.0 €');
                 });
                 if(n==0) {
                     window.location.replace('/../../index.php');
@@ -121,8 +123,9 @@ function delete_product_cart(id_product, cantidad, price) {
                 $.get('/index.php', { 'action': 'update_comanda', 'id': comanda_id, 'total_elementos': total_elementos, 'total_importe': total_importe }, function (update_comanda) {
                    
                     $.get('/index.php', { 'action': 'delete_producto_comanda', 'comanda_id': comanda_id, 'productos_id': id_product }, function (delete_producto_comanda) {
-                        $.get('/index.php', { 'action': 'update_cart_number', 'total_items': total_elementos }, function (update_cart_number) {
+                        $.get('/index.php', { 'action': 'update_cart_number', 'total_items': total_elementos, 'total_price': total_importe}, function (update_cart_number) {
                             $('#number_cart').text('(' + total_elementos + ')');
+                            $('#total_price_cart').text(total_importe.toFixed(2) + ' €');
                         });
 
                         $.get('/index.php', { 'action': 'select_comanda', 'user_id': datos.user_id }, function (data_shop) {
@@ -181,8 +184,9 @@ $('.product_quantity_button_plus').click(function () {
                     $.get('/index.php', { 'action': 'shopping_cart', 'comanda_id': comanda_id }, function (data_linea_comanda) {
                         $('#main-page').html(data_linea_comanda);
                     
-                        $.get('/index.php', { 'action': 'update_cart_number', 'total_items': total_elementos }, function (update_cart_number) {
+                        $.get('/index.php', { 'action': 'update_cart_number', 'total_items': total_elementos, 'total_price': total_importe }, function (update_cart_number) {
                             $('#number_cart').text('(' + total_elementos + ')');
+                            $('#total_price_cart').text(total_importe.toFixed(2) + ' €');
                         });
                     });
                 });
@@ -213,8 +217,9 @@ $('.product_quantity_button_minus').click(function () {
                         $.get('/index.php', { 'action': 'shopping_cart', 'comanda_id': comanda_id }, function (data_linea_comanda) {
                             $('#main-page').html(data_linea_comanda);
                         
-                            $.get('/index.php', { 'action': 'update_cart_number', 'total_items': total_elementos }, function (update_cart_number) {
+                            $.get('/index.php', { 'action': 'update_cart_number', 'total_items': total_elementos, 'total_price': total_importe}, function (update_cart_number) {
                                 $('#number_cart').text('(' + total_elementos + ')');
+                                $('#total_price_cart').text(total_importe.toFixed(2) + ' €');
                             });
                         });
                     });

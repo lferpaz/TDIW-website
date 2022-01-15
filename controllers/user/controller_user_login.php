@@ -18,6 +18,7 @@ if (password_verify($_POST['password'], $usuario['password'])) {
     $comanda = select_comanda($connection, $usuario['Id']);
     foreach ($comanda as $comanda) {
         $_SESSION['total_items'] = $comanda['total_elementos'];
+        $_SESSION['total_price'] = $comanda['importe_total'];
     }
     header("Location: ../../index.php");
 } else {

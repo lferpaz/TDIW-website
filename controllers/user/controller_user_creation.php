@@ -17,6 +17,7 @@ if ($correct) {
     $_SESSION['name'] = $name;
     $_SESSION['user_id'] = $_POST['dni'];
     $_SESSION['total_items'] = 0;
+    $_SESSION['total_price'] = '0.0';
     header("Location: ../../index.php");
 } else {
     header("Location: ../../index.php?action=signup&error=signup");
