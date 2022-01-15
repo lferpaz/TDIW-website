@@ -1,4 +1,3 @@
-<!-- Footer de la pagina web-->
 <footer>
 	<div id="footer-container">
         <div id="footer-inner">
