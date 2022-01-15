@@ -51,6 +51,7 @@ On this website you can do the following actions.
 ## Authors
 - **Miguel del Arco** - Developer - [migueldemollet](https://github.com/migueldemollet)
 - **Luis Fernando** - Developer - [lferpaz](https://github.com/lferpaz)
+- **Laia Guerrero** - Graphic designer - [Contact email](mailto:laiaguerrero99@gmail.com)
 
 ## License
 This project is under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
