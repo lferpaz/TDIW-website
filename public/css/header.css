@@ -85,6 +85,8 @@
     align-items: center;
     font-size: 23px;
     padding-bottom: 3px;
+    max-height: 70px;
+    max-width: 200px;
 }
 
 .right-header-start img {

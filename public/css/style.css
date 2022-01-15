@@ -8,10 +8,7 @@ body {
 }
 
 .form-page {
-    display: flex;
-    align-items: center;
-    align-content: center;
-    flex-direction: column;
+    display: grid;
 }
 
 .form-checkbox {
@@ -54,23 +51,23 @@ body {
 }
 
 .box {
-    display:flex;
-    justify-content:start;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 6%;
 } 
 
 .left-box {
-    width: 45%;
     margin-top: 2%;
     margin-left: 2%;
     border-right: 1px #000;
 }
 
-.left-box img {
-    width: 100%;
+.right-box {
+    width: 45%;
 }
 
-.right-box {
-    margin-left: 10%;
+.left-box img {
+    width: 100%;
 }
 
 .form {
@@ -106,6 +103,8 @@ body {
 }
 
 .form-control img {
+    width: 15px;
+    height: 15px;
     grid-area: icono;
     justify-self: end;
     margin-top: 14px;

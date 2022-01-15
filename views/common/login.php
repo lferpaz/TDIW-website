@@ -49,7 +49,7 @@
                         <a href="#" alt="link para recuperar contraseña">He olvidado mi contraseña</a>
     
                         <input id="send" type="submit" value="Iniciar session">
-                  </form>
+                    </form>
     
                     <div class="separador">
                         <span>¿Aun no tienes una cuenta?</span>
