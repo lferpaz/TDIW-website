@@ -5,7 +5,7 @@
         <h3 id="price"><?php echo $product['precio']; ?> €</h3>
         <p><?php echo $product['descripcion']; ?></p>
         <input id="product_cart_quantity" type="number" name="quantity" value="1" min="1">
-        <a id="button-add-trolley" class="button">Añadir al carrito</a>
+        <a id="button-add-trolley" class="button btn-add-cart">Añadir al carrito</a>
         
     </section>
 <?php } ?>
