@@ -33,7 +33,7 @@
         
                 <section class="right-box">
                     <h2>Iniciar sesión</h2>
-                    <form id="form-login" action="/../../index.php?action=user_login" method="post" class="form">
+                    <form id="form-login" action="<?php echo htmlspecialchars("/../../index.php?action=user_login");?>" method="post" class="form">
                         <div class="form-control">
                             <input id="mail-form" class="form-input" type="text" name="mail" placeholder="Email*" required>
                             <img src="./public/images/correct.png" class="fas fa-check-circle"></img>

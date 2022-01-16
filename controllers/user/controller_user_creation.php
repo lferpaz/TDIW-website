@@ -8,7 +8,7 @@ include __DIR__. '/../../index.php';
 $connection = connect_db();
 $error = validate_sign_up();
 
-if ($$error = "") {
+if ($error == "") {
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $name = $_POST['name'].' '.$_POST['last_name'];
     $photo = "/public/images/user/default.png";
@@ -22,7 +22,7 @@ if ($$error = "") {
         $_SESSION['name'] = $name;
         $_SESSION['user_id'] = $_POST['dni'];
         $_SESSION['total_items'] = 0;
-        $_SESSION['total_price'] = '0.0';
+        $_SESSION['total_price'] = '0.00';
         header("Location: ../../index.php");
     } else {
         header("Location: ../../index.php?action=signup&error=Usuario ya existe");

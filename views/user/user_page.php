@@ -5,7 +5,7 @@ foreach($users as $user) {
         <div class="user_page_image">
             <img id="user-img-form" src="<?php echo $user['foto']; ?>" alt="<?php echo $user['nombre']; ?>">
         </div>
-        <form id="form-update" action="index.php?action=update_user" method="post" enctype="multipart/form-data">
+        <form id="form-update" action="<?php echo htmlspecialchars("index.php?action=update_user");?>" method="post" enctype="multipart/form-data">
             <div class="form-control">
                 <input id="profile_image" type="file" class="form-input" name="profile_image"/>
                 <img src="./public/images/correct.png" class="fas fa-check-circle"></img>

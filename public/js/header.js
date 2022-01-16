@@ -48,7 +48,6 @@ $(document).ready(function() {
     });
 
     $('.right-header-start').hover(function(){
-        //comprueba si el elemento tiene el cursor encima
         if($(this).is(":hover")) {
             $(this).css({'background-color': '#E4E4E4'});
         } else {
@@ -57,7 +56,6 @@ $(document).ready(function() {
     });
 
     $('.right-header-end').hover(function(){
-        //comprueba si el elemento tiene el cursor encima
         if($(this).is(":hover")) {
             $(this).css({'background-color': '#E4E4E4'});
         } else {

@@ -38,6 +38,13 @@ function get_current_time() {
     return (time +':'+ hours);
 }
 
+function update_header_cart(total_elementos, total_importe) {
+    $.get('/index.php', { 'action': 'update_cart_number', 'total_items': total_elementos, 'total_price': total_importe }, function () {
+        $('#number_cart').text('(' + total_elementos + ')');
+        $('#total_price_cart').text(total_importe.toFixed(2) + ' €');
+    });
+}
+
 $('#button-add-trolley').click(function () {
     $.get('/index.php', { 'action': 'session', 'op': 'check' }, function (data) {
         if (data == 'false') {
@@ -49,7 +56,7 @@ $('#button-add-trolley').click(function () {
             var quantity = parseInt($('#product_cart_quantity').val());
             $.get('/index.php', { 'action': 'select_comanda', 'user_id': datos.user_id }, function (data_comanda) {
                 if (data_comanda == 'false') {
-                    $.get('/index.php', { 'action': 'create_comanda', 'user_id': datos.user_id, 'date': time }, function (data_created_comanda) {
+                    $.get('/index.php', { 'action': 'create_comanda', 'user_id': datos.user_id, 'date': time }, function () {
                         $.get('/index.php', { 'action': 'select_comanda', 'user_id': datos.user_id }, function (data_comanda_after_created) {
                             add_product_to_cart(data_comanda_after_created, id_product, quantity);
                         });
@@ -59,7 +66,7 @@ $('#button-add-trolley').click(function () {
                     if (comanda.cerrada == '0') {
                         add_product_to_cart(data_comanda, id_product, quantity);
                     } else {
-                        $.get('/index.php', { 'action': 'create_comanda', 'user_id': datos.user_id, 'date': time }, function (data_created_comanda) {
+                        $.get('/index.php', { 'action': 'create_comanda', 'user_id': datos.user_id, 'date': time }, function () {
                             $.get('/index.php', { 'action': 'select_comanda', 'user_id': datos.user_id }, function (data_comanda_after_created) {
                                 add_product_to_cart(data_comanda_after_created, id_product, quantity);
                             });
@@ -78,7 +85,7 @@ function add_product_to_cart(data_comanda, id_product, quantity) {
     var total_elementos = parseInt(comanda.total_elementos) + quantity;
     var total_importe = parseFloat(comanda.importe_total) + (parseFloat($('#price').text()) * quantity);
 
-    $.get('/index.php', { 'action': 'update_comanda', 'id': id_comanda, 'total_elementos': total_elementos, 'total_importe': total_importe }, function (update_comanda) {
+    $.get('/index.php', { 'action': 'update_comanda', 'id': id_comanda, 'total_elementos': total_elementos, 'total_importe': total_importe }, function () {
         $.get('/index.php', { 'action': 'select_linea_comanda', 'comanda_id': id_comanda, 'producto_id': id_product }, function (data_linea_comanda) {
             if (data_linea_comanda == 'false') {
                 $.get('/index.php', { 'action': 'create_linea_comanda', 'comanda_id': id_comanda, 'producto_id': id_product, 'cantidad': quantity, 'nombre_producto': $('#name').text(), 'precio_producto': $('#price').text() });
@@ -87,10 +94,7 @@ function add_product_to_cart(data_comanda, id_product, quantity) {
                 var cantidad = parseInt(linea.cantidad) + quantity;
                 $.get('/index.php', { 'action': 'update_linea_comanda', 'comanda_id': id_comanda, 'cantidad': cantidad, 'product_id': id_product });
             }
-            $.get('/index.php', { 'action': 'update_cart_number', 'total_items': total_elementos, 'total_price': total_importe }, function (update_cart_number) {
-                $('#number_cart').text('(' + total_elementos + ')');
-                $('#total_price_cart').text(total_importe.toFixed(2) + ' €');
-            });
+            update_header_cart(total_elementos, total_importe);
         });
     });
     alert('Producto añadido añadido cesta.');
@@ -103,13 +107,10 @@ function delete_cart(n){
             comanda = JSON.parse(data_comanda);
             var id_comanda = comanda.comanda_id;
 
-            $.get('/index.php', { 'action': 'delete_comanda', 'id': id_comanda }, function (delete_comanda) {
+            $.get('/index.php', { 'action': 'delete_comanda', 'id': id_comanda }, function () {
                 var total_elementos = 0;
-                var total_importe = 0.0;
-                $.get('/index.php', { 'action': 'update_cart_number', 'total_items': total_elementos, 'total_price': total_importe}, function (update_cart_number) {
-                    $('#number_cart').text('(0)');
-                    $('#total_price_cart').text('0.0 €');
-                });
+                var total_importe = 0.00;
+                update_header_cart(total_elementos, total_importe);
                 if(n==0) {
                     window.location.replace('/../../index.php');
                     alert('Carrito de compras vacio');
@@ -129,13 +130,10 @@ function delete_product_cart(id_product, cantidad, price) {
                 var total_elementos = parseInt(comanda.total_elementos) - cantidad;
                 var total_importe = parseFloat(comanda.importe_total) - price*cantidad;
 
-                $.get('/index.php', { 'action': 'update_comanda', 'id': comanda_id, 'total_elementos': total_elementos, 'total_importe': total_importe }, function (update_comanda) {
+                $.get('/index.php', { 'action': 'update_comanda', 'id': comanda_id, 'total_elementos': total_elementos, 'total_importe': total_importe }, function () {
                    
-                    $.get('/index.php', { 'action': 'delete_producto_comanda', 'comanda_id': comanda_id, 'productos_id': id_product }, function (delete_producto_comanda) {
-                        $.get('/index.php', { 'action': 'update_cart_number', 'total_items': total_elementos, 'total_price': total_importe}, function (update_cart_number) {
-                            $('#number_cart').text('(' + total_elementos + ')');
-                            $('#total_price_cart').text(total_importe.toFixed(2) + ' €');
-                        });
+                    $.get('/index.php', { 'action': 'delete_producto_comanda', 'comanda_id': comanda_id, 'productos_id': id_product }, function () {
+                        update_header_cart(total_elementos, total_importe);
 
                         $.get('/index.php', { 'action': 'select_comanda', 'user_id': datos.user_id }, function (data_shop) {
                             if (data_shop != 'false') {
@@ -146,7 +144,7 @@ function delete_product_cart(id_product, cantidad, price) {
                             }
                         });
                         if (total_elementos == 0) {
-                            $.get('/index.php', { 'action': 'delete_comanda', 'id': comanda_id }, function (delete_comanda) {
+                            $.get('/index.php', { 'action': 'delete_comanda', 'id': comanda_id }, function () {
                                 window.location.replace('/../../index.php');
                             });
                         }
@@ -188,15 +186,11 @@ $('.product_quantity_button_plus').click(function () {
             var total_elementos = parseInt(comanda.total_elementos) + 1;
             var total_importe = parseFloat(comanda.importe_total) + price;
 
-            $.get('/index.php', { 'action': 'update_comanda', 'id': comanda_id, 'total_elementos': total_elementos, 'total_importe': total_importe }, function (update_comanda) {
-                $.get('/index.php', { 'action': 'update_linea_comanda', 'comanda_id': comanda_id, 'cantidad': new_quantity, 'product_id': id_product }, function (update_linea_comanda) {
+            $.get('/index.php', { 'action': 'update_comanda', 'id': comanda_id, 'total_elementos': total_elementos, 'total_importe': total_importe }, function () {
+                $.get('/index.php', { 'action': 'update_linea_comanda', 'comanda_id': comanda_id, 'cantidad': new_quantity, 'product_id': id_product }, function () {
                     $.get('/index.php', { 'action': 'shopping_cart', 'comanda_id': comanda_id }, function (data_linea_comanda) {
                         $('#main-page').html(data_linea_comanda);
-                    
-                        $.get('/index.php', { 'action': 'update_cart_number', 'total_items': total_elementos, 'total_price': total_importe }, function (update_cart_number) {
-                            $('#number_cart').text('(' + total_elementos + ')');
-                            $('#total_price_cart').text(total_importe.toFixed(2) + ' €');
-                        });
+                        update_header_cart(total_elementos, total_importe);
                     });
                 });
             });
@@ -221,15 +215,11 @@ $('.product_quantity_button_minus').click(function () {
                 var total_elementos = parseInt(comanda.total_elementos) - 1;
                 var total_importe = parseFloat(comanda.importe_total) - price;
 
-                $.get('/index.php', { 'action': 'update_comanda', 'id': comanda_id, 'total_elementos': total_elementos, 'total_importe': total_importe }, function (update_comanda) {
-                    $.get('/index.php', { 'action': 'update_linea_comanda', 'comanda_id': comanda_id, 'cantidad': new_quantity, 'product_id': id_product }, function (update_linea_comanda) {
+                $.get('/index.php', { 'action': 'update_comanda', 'id': comanda_id, 'total_elementos': total_elementos, 'total_importe': total_importe }, function () {
+                    $.get('/index.php', { 'action': 'update_linea_comanda', 'comanda_id': comanda_id, 'cantidad': new_quantity, 'product_id': id_product }, function () {
                         $.get('/index.php', { 'action': 'shopping_cart', 'comanda_id': comanda_id }, function (data_linea_comanda) {
                             $('#main-page').html(data_linea_comanda);
-                        
-                            $.get('/index.php', { 'action': 'update_cart_number', 'total_items': total_elementos, 'total_price': total_importe}, function (update_cart_number) {
-                                $('#number_cart').text('(' + total_elementos + ')');
-                                $('#total_price_cart').text(total_importe.toFixed(2) + ' €');
-                            });
+                            update_header_cart(total_elementos, total_importe);
                         });
                     });
                 });
