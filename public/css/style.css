@@ -277,6 +277,7 @@ body {
         'image titulo'
         'image precio'
         'image descripcion'
+        'image quantity'
         'image button';
 }
 
@@ -297,6 +298,19 @@ body {
 .product-detaill p {
     grid-area: descripcion;
 }
+
+#product_cart_quantity {
+    grid-area: quantity;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    text-align: center;
+    border: solid 1px;
+}
+
+
 
 .product-detaill input {
     grid-area: button;
