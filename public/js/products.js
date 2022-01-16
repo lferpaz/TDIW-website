@@ -26,15 +26,24 @@ $(document).ready(function () {
 
 });
 
+function get_current_time() {
+    var d = new Date();
+    var month = d.getMonth() + 1;
+    var day = d.getDate();
+    var hour = d.getHours();
+    var min = d.getMinutes();
+    var sec = d.getSeconds();
+    var time = ((day).length < 2 ? '0' : '') + day + '/' + (('' + month).length < 2 ? '0' : '') + month + '/' + d.getFullYear();
+    var hours = ((hour).length < 2 ? '0': '') + hour + ':' + ((min).length < 2 ? '0': '') + min + ':' + ((sec).length < 2 ? '0': '') + sec;
+    return (time +':'+ hours);
+}
+
 $('#button-add-trolley').click(function () {
     $.get('/index.php', { 'action': 'session', 'op': 'check' }, function (data) {
         if (data == 'false') {
             window.location.replace('/../../index.php?action=login');
         } else {
-            var d = new Date();
-            var month = d.getMonth() + 1;
-            var day = d.getDate();
-            var time = ((day).length < 2 ? '0' : '') + day + '/' + (('' + month).length < 2 ? '0' : '') + month + '/' + d.getFullYear();
+            var time = get_current_time();
             var datos = JSON.parse(data);
             var id_product = $('.product-detaill').attr('id');
             var quantity = parseInt($('#product_cart_quantity').val());
@@ -258,10 +267,7 @@ $('#yes-confirm-compra').click(function () {
         $.get('/index.php', { 'action': 'select_comanda', 'user_id': datos.user_id }, function (data_comanda) {
             comanda = JSON.parse(data_comanda);
             var id_comanda = comanda.comanda_id;
-            var d = new Date();
-            var month = d.getMonth() + 1;
-            var day = d.getDate();
-            var time = ((day).length < 2 ? '0' : '') + day + '/' + (('' + month).length < 2 ? '0' : '') + month + '/' + d.getFullYear();
+            var time = get_current_time();
             $.get('/index.php', { 'action': 'user_confirm', 'id':id_comanda, 'state':1, 'data':time }, function (user_confirm) {
                 delete_cart();
                 $('#main-page').html(user_confirm);   
