@@ -36,8 +36,10 @@ if (empty($linia_comandas)) {?>
         </div>
         <div id="resum-cart">
             <h1>Total: <?php echo $total_price; ?>€</h1>
-            <input id="shop-products" type="button" value="Realizar Pedido">
-            <input id="delete-cart" type="button" value="Vaciar carro de compras">
+            <div class="resum-cart-buttons">
+                <input class="button btn-cart" id="shop-products" type="button" value="Realizar Pedido">
+                <input class="button btn-cart" id="delete-cart" type="button" value="Vaciar carro de compras">
+            </div>
         </div>
     </section>
     <?php

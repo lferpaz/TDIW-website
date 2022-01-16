@@ -33,9 +33,9 @@
 
         </div>
         <ul id="slide-menu">
-            <li onClick=menuClick(0)><input id="user-account-btn" type="button" value="Mi cuenta"></li>
-            <li onClick=menuClick(1)><input id="user-order-btn" type="button" value="Mis Pedidos"></li>
-            <li onClick=menuClick(2)><input id="user-logout-btn" type="button" value="Cerrar session"></li>
+            <li onClick=menuClick(0)><input class="button" id="user-account-btn" type="button" value="Mi cuenta"></li>
+            <li onClick=menuClick(1)><input class="button" id="user-order-btn" type="button" value="Mis Pedidos"></li>
+            <li onClick=menuClick(2)><input class="button" id="user-logout-btn" type="button" value="Cerrar session"></li>
         </ul>
             <div class="separador sp-header"></div>
     </setction>    

@@ -98,7 +98,7 @@
                         <input type="checkbox" class="form-checkbox" name="conditions" value="condition" required>
                         <label for="conditions"> He leído y acepto la <a href="#" alt="link politica de privacidad">política de privacidad</a></label>
     
-                        <input id="send" type="submit" value="Crear Cuenta">
+                        <input class="button" id="send" type="submit" value="Crear Cuenta">
                   </form>
     
                     <div class="separador">

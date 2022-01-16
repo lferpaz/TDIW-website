@@ -61,7 +61,7 @@ foreach($users as $user) {
                 <small>Error message</small>
             </div>
 
-            <input type="submit" value="Modificar">
+            <input class="button btn-modify" type="submit" value="Modificar">
         </form>
     </section>
     <?php

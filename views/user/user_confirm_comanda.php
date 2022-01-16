@@ -31,7 +31,7 @@ if ($linia_comandas == 'false') {
         </div>
         <div id="resum-cart">
             <h1>Total: <?php echo $total_price; ?>€</h1>
-            <input id="yes-confirm-compra" type="button" value="SI,comfirmar compra">
+            <input class="button btn-cart" id="yes-confirm-compra" type="button" value="SI,comfirmar compra">
         </div>
     </section>
     <?php
