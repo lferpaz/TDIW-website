@@ -25,6 +25,10 @@ switch($_GET['action']) {
     case 'update_cart_number':
         require __DIR__ . "/controllers/common/cart.php";
         break;
+    
+    case 'validation':
+        require __DIR__ . "/controllers/common/validation.php";
+        break;
 
     //user
     case 'select_user':

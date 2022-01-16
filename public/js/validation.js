@@ -1,11 +1,7 @@
 $(document).ready(function() {
     let searchParams = new URLSearchParams(window.location.search)
     if (searchParams.has('error')) {
-        if (searchParams.get('error') == 'login') {
-            alert("El usuaio o la contraseña son incorrectos");
-        } else if (searchParams.get('error') == 'signup') {
-            alert("El usuario ya existe");
-        }
+        alert(searchParams.get('error'));
     }
     $("#form-signup").submit(function(e) {
         var dni = $(this).find("input[name='dni']").val();
