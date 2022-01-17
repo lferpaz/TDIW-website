@@ -1,5 +1,10 @@
 <?php
 foreach($users as $user) {
+    if (empty($user['telefono'])) {
+        $phone = 'Telefono';
+    } else {
+        $phone = $user['telefono'];
+    }
     ?>
     <section class="user_page">
         <div class="user_page_image">
@@ -25,7 +30,7 @@ foreach($users as $user) {
                 <small>Error message</small>
             </div>
             <div class="form-control">
-                <input id="phone-form" class="form-input" type="text" name="phone" placeholder="<?php echo $user['telefono']; ?>">
+                <input id="phone-form" class="form-input" type="text" name="phone" placeholder="<?php echo $phone; ?>">
                 <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
                 <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
                 <small>Error message</small>
