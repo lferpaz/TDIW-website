@@ -2,7 +2,7 @@
     $product['Id'] = htmlentities($product['Id'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
     $product['foto'] = htmlentities($product['foto'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
     $product['nombre'] = htmlentities($product['nombre'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
-    $product['precio'] = htmlentities($product['precio'], ENT_QUOTES | ENT_HTML5, 'UTF-8'); 
+    $product['precio'] = $product['precio']; 
     ?>
 <div id="<?php echo($product['Id']);?>" class="product">
     <img src="<?php echo($product['foto']);?>">

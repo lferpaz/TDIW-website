@@ -1,6 +1,6 @@
 <?php
 if (empty($linia_comandas)) {?>
-    ?> <h1>La cesta esta vacia.</h1> <?php
+    <h1>La cesta esta vacia.</h1> <?php
 } else {
     $total_price = 0;
     ?>
