@@ -11,6 +11,8 @@ if ($linia_comandas == 'false') {
         <div id="cart-contend">
             <?php
             foreach ($linia_comandas as $linia_comanda) {
+                $linia_comanda['productos_id'] = htmlentities($linia_comanda['productos_id'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+                
                 $total_price += $linia_comanda['precio'] * $linia_comanda['cantidad'];
                 $_GET['id'] = $linia_comanda['productos_id'];
                 $_GET['action'] = 'product_data';

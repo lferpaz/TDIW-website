@@ -1,9 +1,16 @@
 <?php
 foreach($users as $user) {
+    $user['foto'] = htmlentities($user['foto'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $user['nombre'] = htmlentities($user['nombre'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $user['email'] = htmlentities($user['email'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $user['direccion'] = htmlentities($user['direccion'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $user['poblacion'] = htmlentities($user['poblacion'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $user['cp'] = htmlentities($user['cp'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    
     if (empty($user['telefono'])) {
         $phone = 'Telefono';
     } else {
-        $phone = $user['telefono'];
+        $phone = htmlentities($user['telefono'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
     }
     ?>
     <section class="user_page">

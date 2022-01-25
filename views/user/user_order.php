@@ -4,8 +4,9 @@ if (empty($comandas)) {?>
     <?php
 }
 foreach($comandas as $comanda) {
+    $comanda['data'] = htmlentities($comanda['data'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
     $total_price = 0;
-    $_GET['comanda_id'] = $comanda['Id'];
+    $_GET['comanda_id'] = htmlentities($comanda['Id'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
     $_GET['variant'] = 0;
     $_GET['action'] = 'shopping_cart';
     include __DIR__. '/../../index.php';
@@ -14,6 +15,8 @@ foreach($comandas as $comanda) {
         <div id="cart-contend">
             <?php
             foreach ($linia_comandas as $linia_comanda) {
+                $linia_comanda['productos_id'] = htmlentities($linia_comanda['productos_id'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+
                 $total_price += $linia_comanda['precio'] * $linia_comanda['cantidad'];
                 $_GET['id'] = $linia_comanda['productos_id'];
                 $_GET['action'] = 'product_data';

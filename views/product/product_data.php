@@ -1,11 +1,12 @@
 <?php
 foreach($products as $product) {
-    $id_product = $product['Id'];
-    $name_product = $product['nombre'];
-    $price_product = $product['precio'];
-    $description_product = $product['descripcion'];
-    $photo_product = $product['foto'];
-    $category_id_product = $product['categoria_id'];
+    
+    $id_product = htmlentities($product['Id'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $name_product = htmlentities($product['nombre'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $price_product = htmlentities($product['precio'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $description_product = htmlentities($product['descripcion'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $photo_product = htmlentities($product['foto'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $category_id_product = htmlentities($product['categoria_id'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
 }
 $product_data = ['id' => $id_product, 'name' => $name_product, 'price' => $price_product, 'description' => $description_product, 
         'photo' => $photo_product, 'category_id' => $category_id_product];
