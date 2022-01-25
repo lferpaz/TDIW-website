@@ -35,13 +35,14 @@
                     <h2>Iniciar sesión</h2>
                     <form id="form-login" action="<?php echo htmlspecialchars("/../../index.php?action=user_login");?>" method="post" class="form">
                         <div class="form-control">
-                            <input id="mail-form" class="form-input" type="text" name="mail" placeholder="Email*" required>
+                            <input id="mail-form" class="form-input" type="text" name="mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Debe de introducir un correo valido" placeholder="Email*" required>
                             <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
                             <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
                             <small>Error message</small>
                         </div>
                         <div class="form-control">
-                            <input id="password-form" class="form-input" type="password" name="password" placeholder="Contraseña*" required>
+                            <input id="password-form" class="form-input" type="password" name="password" pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,15}$" 
+                            title="La contraseña debe tener al entre 8 y 15 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula." placeholder="Contraseña*" required>
                             <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
                             <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
                             <small>Error message</small>

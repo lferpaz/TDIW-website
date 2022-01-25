@@ -19,55 +19,57 @@ foreach($users as $user) {
         </div>
         <form id="form-update" action="<?php echo htmlspecialchars("index.php?action=update_user");?>" method="post" enctype="multipart/form-data">
             <div class="form-control">
-                <input id="profile_image" type="file" class="form-input" name="profile_image"/>
+                <input id="profile_image" type="file" class="form-input" name="profile_image" pattern="^(.*\.(?(jpg|jpeg|png)$))?[^.]*$" title="El fichero debe de ser jpg, jpeg o png"/>
                 <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
                 <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
                 <small>Error message</small>
             </div>
             <div class="form-control">    
-                <input id="name-form" class="form-input" type="text" name="name" placeholder="<?php echo $user['nombre']; ?>">
+                <input id="name-form" class="form-input" type="text" name="name" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*{0,40}$" title="El nombre debe tener como máximo 40 caracteres" placeholder="<?php echo $user['nombre']; ?>">
                 <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
                 <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
                 <small>Error message</small>
             </div>
             <div class="form-control">
-                <input id="mail-form" class="form-input" type="mail" name="mail" placeholder="<?php echo $user['email']; ?>">
+                <input id="mail-form" class="form-input" type="mail" name="mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Debe de introducir un correo valido" placeholder="<?php echo $user['email']; ?>">
                 <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
                 <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
                 <small>Error message</small>
             </div>
             <div class="form-control">
-                <input id="phone-form" class="form-input" type="text" name="phone" placeholder="<?php echo $phone; ?>">
+                <input id="phone-form" class="form-input" type="text" name="phone" pattern="[0-9]{9,9}$" title="Introduzca un numero valido" placeholder="<?php echo $phone; ?>">
                 <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
                 <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
                 <small>Error message</small>
             </div>
             <div class="form-control">
-                <input id="direction-form" class="form-input" type="text" name="direction" placeholder="<?php echo $user['direccion']; ?>">
+                <input id="direction-form" class="form-input" type="text" name="direction" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*{10,30}$" title="La direccion debe tener como minimo 10 caracteres y commo máximo 30 caracteres" placeholder="<?php echo $user['direccion']; ?>">
                 <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
                 <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
                 <small>Error message</small>
             </div>
             <div class="form-control">
-                <input id="poblacion-form" class="form-input" type="text" name="poblacion" placeholder="<?php echo $user['poblacion']; ?>">
+                <input id="poblacion-form" class="form-input" type="text" name="poblacion" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*{5,30}$" title="La Poblacion debe tener como minimo 5 caracteres y commo máximo 30 caracteres" placeholder="<?php echo $user['poblacion']; ?>">
                 <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
                 <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
                 <small>Error message</small>
             </div>
             <div class="form-control">
-                <input id="cp-form" class="form-input" type="text" name="cp" placeholder="<?php echo $user['cp'];?>">
+                <input id="cp-form" class="form-input" type="text" name="cp" pattern="[0-9]{5,5}$" title="Codigo postal debe de tener 5 caracteres numericos" placeholder="<?php echo $user['cp'];?>">
                 <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
                 <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
                 <small>Error message</small>
             </div>
             <div class="form-control">
-                <input id="password-form" class="form-input" type="password" name="password" placeholder="Contraseña"><br>
+                <input id="password-form" class="form-input" type="password" name="password" pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,15}$" 
+                title="La contraseña debe tener al entre 8 y 15 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula." placeholder="Contraseña"><br>
                 <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
                 <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
                 <small>Error message</small>
             </div>
             <div class="form-control">
-                <input id="password_confirmation-form" class="form-input" type="password" name="password_confirmation" placeholder="Repetir Contraseña">
+                <input id="password_confirmation-form" class="form-input" type="password" name="password_confirmation" pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,15}$" 
+                title="La contraseña debe tener al entre 8 y 15 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula." placeholder="Repetir Contraseña">
                 <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
                 <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
                 <small>Error message</small>

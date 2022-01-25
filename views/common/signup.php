@@ -35,61 +35,63 @@
                     <h2>Crear Cuenta</h2>
                     <form id="form-signup" action="<?php echo htmlspecialchars("/../../index.php?action=create_user");?>" method="post" class="form">
                         <div class="form-control">
-                            <input id="dni-form" class="form-input" type="text" name="dni" placeholder="DNI/NIE*" required>
+                            <input id="dni-form" class="form-input" type="text" name="dni" pattern="^[0-9]{8,9}[A-Z]$" title="El DNI es incorrecto (8 o 9 dígitos y una letra mayúscula)" placeholder="DNI/NIE*" required>
                             <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
                             <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
                             <small>Error message</small>
                         </div>
                         <div class="form-control">
-                            <input id="name-form" class="form-input" type="text" name="name" placeholder="Nombre*" required>
+                            <input id="name-form" class="form-input" type="text" name="name" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*{1,15}$" title="El nombre debe tener como máximo 15 caracteres" placeholder="Nombre*" required>
                             <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
                             <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
                             <small>Error message</small>
                         </div>
                         <div class="form-control">
-                            <input id="last_name-form" class="form-input" type="text" name="last_name" placeholder="Apellido">
+                            <input id="last_name-form" class="form-input" type="text" name="last_name" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*{0,20}$" title="El Apellido debe tener como máximo 20 caracteres" placeholder="Apellido">
                             <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
                             <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
                             <small>Error message</small>
                         </div>
                         <div class="form-control">
-                            <input id="mail-form" class="form-input" type="text" name="mail" placeholder="Email*" required>
+                            <input id="mail-form" class="form-input" type="text" name="mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Debe de introducir un correo valido" placeholder="Email*" required>
                             <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
                             <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
                             <small>Error message</small>
                         </div>
                         <div class="form-control">
-                            <input id="phone-form" class="form-input" type="text" name="phone" placeholder="Telefono">
+                            <input id="phone-form" class="form-input" type="text" name="phone" pattern="[0-9]{9,9}$" title="Introduzca un numero valido" placeholder="Telefono">
                             <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
                             <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
                             <small>Error message</small>
                         </div>
                         <div class="form-control">
-                            <input id="direcction-form" class="form-input" type="text" name="direction" placeholder="Direccion*" required>
+                            <input id="direcction-form" class="form-input" type="text" name="direction" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*{10,30}$" title="La direccion debe tener como minimo 10 caracteres y commo máximo 30 caracteres" placeholder="Direccion*" required>
                             <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
                             <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
                             <small>Error message</small>
                         </div>
                         <div class="form-control">
-                            <input id="poblacion-form" class="form-input" type="text" name="poblacion" placeholder="Poblacion*" required>
+                            <input id="poblacion-form" class="form-input" type="text" name="poblacion" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*{5,30}$" title="La Poblacion debe tener como minimo 5 caracteres y commo máximo 30 caracteres" placeholder="Poblacion*" required>
                             <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
                             <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
                             <small>Error message</small>
                         </div>
                         <div class="form-control">
-                            <input id="cp-form" class="form-input" type="text" name="cp" placeholder="Codigo postal*" required>
+                            <input id="cp-form" class="form-input" type="text" name="cp" pattern="[0-9]{5,5}$" title="Codigo postal debe de tener 5 caracteres numericos" placeholder="Codigo postal*" required>
                             <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
                             <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
                             <small>Error message</small>
                         </div>
                         <div class="form-control">
-                            <input id="password-form" class="form-input" type="password" name="password" placeholder="Contraseña*" required>
+                            <input id="password-form" class="form-input" type="password" name="password" pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,15}$" 
+                            title="La contraseña debe tener al entre 8 y 15 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula." placeholder="Contraseña*" required>
                             <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
                             <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
                             <small>Error message</small>
                         </div>
                         <div class="form-control">
-                            <input id="password_confirmation-form" class="form-input" type="password" name="password_confirmation" placeholder="Repetir Contraseña*" required>
+                            <input id="password_confirmation-form" class="form-input" type="password" name="password_confirmation" pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,15}$" 
+                            title="La contraseña debe tener al entre 8 y 15 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula." placeholder="Repetir Contraseña*" required>
                             <img src="./public/images/correct.png" class="fas fa-check-circle"></img>
                             <img src="./public/images/fail.png" class="fas fa-exclamation-circle"></img>
                             <small>Error message</small>
