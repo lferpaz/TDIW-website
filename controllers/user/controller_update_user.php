@@ -21,7 +21,7 @@ if ($error == "") {
     $cp = $_POST['cp'];
     $password = $_POST['password'];
     $photo = $_FILES['profile_image']['tmp_name'];
-
+    $extension = pathinfo($_FILES['profile_image']['name'], PATHINFO_EXTENSION);
     session_start();
     $user_id = $_SESSION['user_id'];
 
@@ -55,9 +55,9 @@ if ($error == "") {
             $photo = $user['foto'];
             $file_destination_relative_path = $photo;
         } else {
-            $filesdestinationPath = $filesAbsolutePath.$user_id.".".pathinfo($photo, PATHINFO_EXTENSION);
+            $filesdestinationPath = $filesAbsolutePath.$user_id.".".$extension;
             move_uploaded_file($photo, $filesdestinationPath);
-            $file_destination_relative_path = $filesRelativePath.$user_id.".".pathinfo($photo, PATHINFO_EXTENSION);
+            $file_destination_relative_path = $filesRelativePath.$user_id.".".$extension;
         }
     }
 
