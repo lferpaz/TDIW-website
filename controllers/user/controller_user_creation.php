@@ -27,9 +27,7 @@ if ($error == "") {
         header("Location: ../../index.php?action=signup&error=Usuario ya existe");
     }
 } else {
-    echo "<SCRIPT>
-        alert('$error');
-        window.location.replace('../../index.php?action=signup');
-    </SCRIPT>";
+    $action = 'signup';
+    include_once __DIR__."/../../views/common/error.php";
 }
 ?>

@@ -1,3 +1,4 @@
+<!--Esto seria un fichero de resources-->
 <!DOCTYPE html>
 <html>
     <head>

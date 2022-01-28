@@ -1,3 +1,4 @@
+<!--Esto seria un fichero de resources-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,9 +27,7 @@
                 </div>
             </section>
             <section class="products">
-                <?php 
-                $_GET['action'] = 'product';
-                include __DIR__."/../../index.php"; ?>
+                <?php include_once __DIR__ . "/../../controllers/product/controller_product.php"; ?>
             </section>
         </main>
         <?php include_once __DIR__."./footer.php"; ?>

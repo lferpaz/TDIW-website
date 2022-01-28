@@ -64,9 +64,6 @@ if ($error == "") {
 
     Header("Location: ../../index.php");
 } else {
-    echo "<SCRIPT>
-        alert('$error');
-        window.location.replace('../../index.php');
-    </SCRIPT>";
+    include_once __DIR__."/../../views/common/error.php";
 }
 ?>

@@ -30,9 +30,7 @@ if ($error == "") {
         header("Location: ../../index.php?action=login&error=El usuaio o la contraseña son incorrectos");
     }
 } else {
-    echo "<SCRIPT>
-        alert('$error');
-        window.location.replace('../../index.php?action=login');
-    </SCRIPT>";
+    $action = 'login';
+    include_once __DIR__."/../../views/common/error.php";
 }
 ?>
