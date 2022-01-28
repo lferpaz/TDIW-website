@@ -18,7 +18,6 @@ if ($error == "") {
 
 
     if ($correct) {
-        session_start();
         $_SESSION['name'] = $name;
         $_SESSION['user_id'] = $_POST['dni'];
         $_SESSION['total_items'] = 0;

@@ -18,7 +18,6 @@ if ($error == "") {
     }
 
     if (password_verify($_POST['password'], $usuario['password'])) {
-        session_start();
         $_SESSION['name'] = $usuario['nombre'];
         $_SESSION['user_id'] = $usuario['Id'];
         $comanda = select_comanda($connection, $usuario['Id']);

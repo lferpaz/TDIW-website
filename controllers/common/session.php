@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 if ($_GET['op'] == 'check') {
     if(isset($_SESSION['name'])){

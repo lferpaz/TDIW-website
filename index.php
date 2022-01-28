@@ -1,4 +1,8 @@
 <?php
+if(!isset($start)){
+    session_start();
+    $start = true;
+}
 
 if(!isset($_GET['action'])) {
     $_GET['action'] = '';

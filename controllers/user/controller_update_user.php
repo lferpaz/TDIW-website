@@ -22,7 +22,6 @@ if ($error == "") {
     $password = $_POST['password'];
     $photo = $_FILES['profile_image']['tmp_name'];
     $extension = pathinfo($_FILES['profile_image']['name'], PATHINFO_EXTENSION);
-    session_start();
     $user_id = $_SESSION['user_id'];
 
     $users = select_user_by_id($connection, $user_id);
