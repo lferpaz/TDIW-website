@@ -7,10 +7,8 @@ if (filter_var($_GET['comanda_id'], FILTER_VALIDATE_INT) && filter_var($_GET['pr
     $linia_comandas = select_linia_comanda($connection, $_GET['comanda_id'], $_GET['producto_id']);
     include_once __DIR__."/../../views/linea_comanda/linea_list.php";
 } else {
-    echo "<SCRIPT>
-        alert('Error al seleccionar la linea de la comanda');
-        window.location.replace('../../index.php');
-    </SCRIPT>";
+    $error = "Error al seleccionar la linea de comanda.";
+    include_once __DIR__."/../../views/common/error.php";
 }
 
 ?>

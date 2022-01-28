@@ -7,10 +7,8 @@ if (filter_var($_GET['comanda_id'], FILTER_VALIDATE_INT) && filter_var($_GET['pr
     $linia_comandas = delete_producto_comanda($connection, $_GET['comanda_id'], $_GET['productos_id']);
     include_once __DIR__."/../../views/user/user_cart.php";
 } else {
-    echo "<SCRIPT>
-        alert('Error al eliminar el producto de la linea de comanda');
-        window.location.replace('../../index.php');
-    </SCRIPT>";
+    $error = "Error al eliminar el producto de la linea de comanda.";
+    include_once __DIR__."/../../views/common/error.php";
 }
 
 ?>

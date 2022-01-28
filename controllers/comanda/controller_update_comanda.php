@@ -10,9 +10,7 @@ if (filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT) && filter_var($_GET['tot
     $comandas = update_comanda($connection, $_GET['id'], $_GET['total_elementos'], $_GET['total_importe']);
     include_once __DIR__."/../../views/comanda/comanda_update.php";
 } else {
-    echo "<SCRIPT>
-        alert('Error al actualizar la comanda');
-        window.location.replace('../../index.php');
-    </SCRIPT>";
+    $error = "Error al actualizar la comanda.";
+    include_once __DIR__."/../../views/common/error.php";
 }
 ?>

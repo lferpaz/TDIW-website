@@ -10,10 +10,8 @@ if (filter_var($_GET['comanda_id'], FILTER_VALIDATE_INT)) {
         include_once __DIR__."/../../views/user/user_cart.php";
     }
 } else {
-    echo "<SCRIPT>
-        alert('Error al seleccionar la linea de la comanda');
-        window.location.replace('../../index.php');
-    </SCRIPT>";
+    $error = "Error al seleccionar la linea de la comanda.";
+    include_once __DIR__."/../../views/common/error.php";
 }
 
 ?>

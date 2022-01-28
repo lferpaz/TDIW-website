@@ -7,9 +7,7 @@ if (filter_var($_GET['date'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOT
     $comandas = create_comanda($connection, $_GET['date'], $_GET['user_id']);
     include_once __DIR__."/../../views/comanda/comanda_update.php";
 } else {
-    echo "<SCRIPT>
-        alert('Error al crear la comanda');
-        window.location.replace('../../index.php');
-    </SCRIPT>";
+    $error = "Error al crear la comanda.";
+    include_once __DIR__."/../../views/common/error.php";
 }
 ?>

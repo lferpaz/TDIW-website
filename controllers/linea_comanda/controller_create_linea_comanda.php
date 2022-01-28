@@ -10,9 +10,7 @@ if (filter_var($_GET['comanda_id'], FILTER_VALIDATE_INT) && filter_var($_GET['pr
     $linia_comandas = create_linea_comanda($connection, $_GET['comanda_id'], $_GET['producto_id'], $_GET['cantidad'], $_GET['nombre_producto'], $_GET['precio_producto']);
     include_once __DIR__."/../../views/linea_comanda/linea_list.php";
 } else {
-    echo "<SCRIPT>
-        alert('Error al crear la linea de la comanda');
-        window.location.replace('../../index.php');
-    </SCRIPT>";
+    $error = "Error al crear la linea de la comanda.";
+    include_once __DIR__."/../../views/common/error.php";
 }
 ?>

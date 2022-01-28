@@ -8,9 +8,7 @@ if (filter_var($_GET['id'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES
     $users = select_user_by_id($connection, $_GET['id']);
     include_once __DIR__."/../../views/user/user_data.php";
 } else {
-    echo "<SCRIPT>
-        alert('Error al seleccionar el usuario');
-        window.location.replace('../../index.php?action=user_list');
-    </SCRIPT>";
+    $error = "Error al seleccionar el usuario.";
+    include_once __DIR__."/../../views/common/error.php";
 }
 ?>

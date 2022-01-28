@@ -10,9 +10,7 @@ if (filter_var($_GET['comanda_id'], FILTER_VALIDATE_INT) && filter_var($_GET['ca
     $comandas = update_linea_comanda($connection, $_GET['comanda_id'], $_GET['cantidad'], $_GET['product_id']);
     include_once __DIR__."/../../views/comanda/comanda_update.php";
 } else {
-    echo "<SCRIPT>
-        alert('Error al actualizar la linea de la comanda');
-        window.location.replace('../../index.php');
-    </SCRIPT>";
+    $error = "Error al actualizar la linea de comanda.";
+    include_once __DIR__."/../../views/common/error.php";
 }
 ?>

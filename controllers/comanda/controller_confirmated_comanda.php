@@ -9,9 +9,7 @@ if (filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT) && filter_var($_GET['sta
     $status = update_comanda_state($connection, $_GET['id'], $_GET['state'], $_GET['data']);
     include_once __DIR__."/../../views/common/user_confirm.php";
 } else {
-    echo "<SCRIPT>
-        alert('Error al actualizar el estado de la comanda');
-        window.location.replace('../../index.php');
-    </SCRIPT>";
+    $error = "Error al actualizar el estado de la comanda.";
+    include_once __DIR__."/../../views/common/error.php";
 }
 ?>
