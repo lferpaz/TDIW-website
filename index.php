@@ -11,15 +11,15 @@ if(!isset($_GET['action'])) {
 switch($_GET['action']) {
     //common
     case '':
-        require __DIR__ . "/views/common/main.php";
+        require __DIR__ . "/resource/main.php";
         break;
 
     case 'login':
-        require __DIR__ . "/views/common/login.php";
+        require __DIR__ . "/resource/login.php";
         break;
 
     case 'signup':
-        require __DIR__ . "/views/common/signup.php";
+        require __DIR__ . "/resource/signup.php";
         break;
         
     case 'session':
@@ -128,7 +128,7 @@ switch($_GET['action']) {
         break;
 
     default:
-        require __DIR__ . "/views/common/main.php";
+        require __DIR__ . "/resource/main.php";
         break;
 }
 
