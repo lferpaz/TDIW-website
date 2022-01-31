@@ -9,7 +9,7 @@ if(!isset($_GET['action'])) {
 }
 
 switch($_GET['action']) {
-    //common
+    //resource
     case '':
         require __DIR__ . "/resource/main.php";
         break;
@@ -22,6 +22,7 @@ switch($_GET['action']) {
         require __DIR__ . "/resource/signup.php";
         break;
         
+    //common
     case 'session':
         require __DIR__ . "/controllers/common/session.php";
         break;
